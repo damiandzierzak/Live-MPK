@@ -2,63 +2,64 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-drawer.min.css">
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <script src="js/pgb.js"></script>
-    <script src="cordova.js"></script>
-    <script src="js/jquery-2.1.4.min.js"></script>
-    <script src="js/jquery.mobile-1.4.5.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/drawer.min.js"></script>
-    <style>
-        body,
-        body * {
-            font-family: 'Open Sans', Arial, sans-serif;
-        }
-        
-        #drawer-page {
-            padding-top: 20px;
-            padding-bottom: 20px;
-        }
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script type="text/javascript" src="js/framework7.min.js"></script>
+    <!-- Path to Framework7 Library JS-->
 
-    </style>
+    <!-- Color theme for statusbar -->
+    <meta name="theme-color" content="#000000">
+    <!-- Your app title -->
+    <title>My App</title>
+    <!-- Path to Framework7 Library CSS, Material Theme -->
+    <link rel="stylesheet" href="css/framework7.material.min.css">
+    <!-- Path to Framework7 color related styles, Material Theme -->
+    <link rel="stylesheet" href="css/framework7.material.colors.min.css">
 </head>
 
-<body class="has-drawer" onload="init()">
-    <!-- add this class to your body for proper sizing -->
-    <div id="drawerExample" class="drawer dw-xs-10 dw-sm-6 dw-md-4 fold" aria-labelledby="drawerExample">
-        <div class="drawer-controls">
-            <a href="#drawerExample" data-toggle="drawer" aria-foldedopen="false" aria-controls="drawerExample" class="btn btn-primary btn-sm">Menu</a>
-        </div>
-        <div class="drawer-contents">
-            <div class="drawer-heading">
-                <h2 class="drawer-title">Menu</h2>
+<body onload="init()">
+    <div class="views">
+        <div class="view view-main">
+            <div class="pages">
+                <div data-page="home" class="page toolbar-fixed navbar-fixed">
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <div class="center">Bottom Toolbar</div>
+                        </div>
+                    </div>
+                    
+                    <div class="toolbar toolbar-bottom">
+                        <div class="toolbar-inner">
+                            <a href="#" data-tab="#home" class="tab-link"><span class="tabbar-label">Link 1</span></a>
+                            <a href="#" data-tab="#arrivals" class="tab-link">Link 2</a>
+                            <a href="#" data-tab="#lines" class="tab-link">Link 3</a></div>
+                    </div>
+                    <div class="page-content">
+                        <div class="tabs">
+                            <div class="tab active" id="home">
+                            1 strona
+                            </div>
+                             <div class="tab" id="arrivals">
+                            przyjazdy
+                            </div>
+                             <div class="tab" id="lines">
+                            linie
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <ul class="drawer-nav">
-                <li role="presentation" class="active"><a href="#home">Home</a></li>
-                <li role="presentation"><a href="#arrivals">Przyjazdy</a></li>
-                <li role="presentation"><a href="#lines">Linie</a></li>
-            </ul>
         </div>
     </div>
-    <div class="container">
+    <script>
+        var myApp = new Framework7({
+            material: true
+        });
 
-        <div data-role="page" id="home">
+    </script>
 
-            <h1>Zdefiniowane tutaj!</h1>
-        </div>
-
-        <div data-role="page" id="arrivals">
-            <h1>Tutaj beda przyjazdy!</h1>
-
-        </div>
-        
-        <div data-role="page" id="lines">
-            <h1>A tutaj konkretna linia!</h1>
-
-        </div>
 </body>
-
 
 </html>
