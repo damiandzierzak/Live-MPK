@@ -40,9 +40,20 @@
                 <a href="arrivals.html" class="list-group-item">Arrivals</a>
             </ul>
         </div>
+
+		<div class="form-group">
+			<label for="lineNr">Line:</label>
+			<input class="form-control" type="text" class="form-control" id="lineNr">
+		</div>
+
+		<div class="form-group">
+			<label for="usr">StopID:</label>
+			<input class="form-control" type="text" class="form-control" id="stopId">
+		</div>		
+		
         <main class="bmd-layout-content">
             <div class="container">
-                <button id="request-btn" data-role="button" data-icon="search">Perform request</button>
+                <button id="request-btn" data-role="button" data-icon="search" class="btn btn-primary btn-lg btn-block" onclick="performRequest()">Perform request</button>
                 <div id="error-msg" />
             </div>
         </main>
