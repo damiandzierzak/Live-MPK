@@ -17,5 +17,7 @@ function onDeviceReady() {
 }
 
 function initListeners() {
-    $('#request-btn').click(performRequest('#stopId','#lineNr'));
+        $('#request-btn').click(function () {
+            performRequest($('#stopId').val(), $('#lineNr').val()):
+        });
 }

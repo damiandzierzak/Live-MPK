@@ -53,7 +53,7 @@
 		
         <main class="bmd-layout-content">
             <div class="container">
-                <button id="request-btn" data-role="button" data-icon="search" class="btn btn-primary btn-lg btn-block" onclick="performRequest('#lineNr', '#stopId')">Perform request</button>
+                <button id="request-btn" data-role="button" data-icon="search" class="btn btn-primary btn-lg btn-block" onclick="performRequest($('#stopId').val(), $('#lineNr').val())">Perform request</button>
                 <div id="error-msg" />
             </div>
         </main>

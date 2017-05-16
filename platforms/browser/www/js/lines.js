@@ -2,7 +2,7 @@ function performRequest(stopId, lineNr) {
     console.log("perform request");
 	$('#error-msg').text('#stopId', '#lineNr');
     var queryString =
-        'http://www.ttss.krakow.pl/internetservice/services/passageInfo/stopPassages/stop?stop=130&mode=departure';
+        'http://www.ttss.krakow.pl/internetservice/services/passageInfo/stopPassages/stop?stop='+stopId+'&mode=departure';
 
     $.getJSON(queryString, function (results) {
         console.log(results);
