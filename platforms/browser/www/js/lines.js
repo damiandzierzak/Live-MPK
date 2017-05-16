@@ -1,6 +1,6 @@
-function performRequest() {
+function performRequest(stopId, lineNr) {
     console.log("perform request");
-	console.log(stopId, lineNr);
+	$('#error-msg').text('#stopId', '#lineNr');
     var queryString =
         'http://www.ttss.krakow.pl/internetservice/services/passageInfo/stopPassages/stop?stop=130&mode=departure';
 
