@@ -7,10 +7,10 @@ function init() {
     if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)) {
         document.addEventListener("deviceready", onDeviceReady, false);
     } else {
-        $(document).ready(function(){ 
-           onDeviceReady();
+        $(document).ready(function () {
+            onDeviceReady();
         });
-        
+
     }
 }
 
@@ -32,7 +32,7 @@ function performRequest(stopName, lineNr) {
     var queryString =
         'http://www.ttss.krakow.pl/internetservice/services/passageInfo/stopPassages/stop?stop=' + routesMap[stopName] + '&mode=departure';
 
-    $.getJSON(queryString, function(results) {
+    $.getJSON(queryString, function (results) {
         var resultText = "";
         for (i = 0; i < results.actual.length; i++) {
             if (results.actual[i].routeId == linesMap[lineNr]) {
@@ -42,7 +42,7 @@ function performRequest(stopName, lineNr) {
         }
         $('#error-msg').text(resultText);
 
-    }).fail(function(jqXHR) {
+    }).fail(function (jqXHR) {
         $('#error-msg').text("Error retrieving data. " + jqXHR.statusText);
     });
 
@@ -57,6 +57,7 @@ function getRoatsList(lineNr) {
 
 
 function autocompleteStops() {
+    console.log("autocompleteStops");
     $('#query').typeahead({
         local: ['alpha', 'allpha2', 'alpha3', 'bravo', 'charlie', 'delta', 'epsilon', 'gamma', 'zulu']
     });

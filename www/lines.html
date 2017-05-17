@@ -9,19 +9,21 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdn.rawgit.com/FezVrasta/bootstrap-material-design/dist/dist/bootstrap-material-design.min.css">
-    
+    <link rel="stylesheet" href="css/typehead.css">
+
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="https://maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js"></script>
     <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-   
+
     <script type="text/javascript" src="js/lines.js"></script>
-   <!-- Bootstrap Material Design -->
+    <!-- Bootstrap Material Design -->
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script src="https://cdn.rawgit.com/HubSpot/tether/v1.3.4/dist/js/tether.min.js"></script>
     <script src="https://cdn.rawgit.com/FezVrasta/bootstrap-material-design/dist/dist/bootstrap-material-design.iife.min.js"></script>
-     <script type="text/javascript" src="js/bootstrap3-typeahead.js"></script>
+    <script type="text/javascript" src="js/typeahead.bundle.min.js"></script>
+
 </head>
 
 <body onload="init()">
@@ -63,18 +65,37 @@
                 <button id="request-btn" data-role="button" data-icon="search" class="btn btn-primary btn-lg btn-block" onclick="performRequest($('#stopId').val(), $('#lineNr').val())">Perform request</button>
                 <div id="error-msg" />
             </div>
-            <form>
-                <fieldset>
-                    <div class="form-group">
-                        <label for="query">Search:</label>
-                        <input class="form-control" name="query" id="query" placeholder="Start typing something to search..." type="text">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Search</button>
-                </fieldset>
-            </form>
+            <div class="bs-example">
+                <h2>Type your favorite car name</h2>
+                <input type="text" class="typeahead tt-query" autocomplete="off" spellcheck="false">
+            </div>
         </main>
     </div>
-     
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // Defining the local dataset
+            var cars = ['Audi', 'BMW', 'Bugatti', 'Ferrari', 'Ford', 'Lamborghini', 'Mercedes Benz', 'Porsche', 'Rolls-Royce', 'Volkswagen'];
+
+            // Constructing the suggestion engine
+            var cars = new Bloodhound({
+                datumTokenizer: Bloodhound.tokenizers.whitespace,
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                local: cars
+            });
+
+            // Initializing the typeahead
+            $('.typeahead').typeahead({
+                hint: true,
+                highlight: true,
+                /* Enable substring highlighting */
+                minLength: 1 /* Specify minimum characters required for showing result */
+            }, {
+                name: 'cars',
+                source: cars
+            });
+        });
+
+    </script>
 </body>
 
 </html>
