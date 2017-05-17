@@ -18,6 +18,7 @@ function onDeviceReady() {
     console.log("onDeviceReady");
     initListeners();
     autocompleteStops();
+    $('body').bootstrapMaterialDesign();
 }
 
 function initListeners() {
