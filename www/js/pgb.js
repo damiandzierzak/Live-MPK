@@ -14,10 +14,9 @@ function init() {
 function onDeviceReady() {
     console.log("onDeviceReady");
     initListeners();
+    autocompleteStops();
 }
 
 function initListeners() {
-        $('#request-btn').click(function () {
-            performRequest($('#stopId').val(), $('#lineNr').val()):
-        });
+
 }
