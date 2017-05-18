@@ -1,3 +1,19 @@
+function init() {
+    // the next line makes it impossible to see Contacts on the HTC Evo since it
+    // doesn't have a scroll button
+    // document.addEventListener("touchmove", preventBehavior, false);
+    console.log("init");
+
+    if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)) {
+        document.addEventListener("deviceready", onDeviceReady, false);
+    } else {
+        $(document).ready(function () {
+            onDeviceReady();
+        });
+
+    }
+}
+
 var stopsNamesArray = [
 	'AWF',
 	'Agencja Kraków Wschód',
@@ -201,8 +217,8 @@ var stopsNamesArray = [
 ];
 
 var stopsNamesIdsMap = [];
-  stopsNamesIdsMap['AWF'] = '113']
-  stopsNamesIdsMap['Agencja Kraków Wschód'] = '462']
+  stopsNamesIdsMap['AWF'] = '113'
+  stopsNamesIdsMap['Agencja Kraków Wschód'] = '462'
   stopsNamesIdsMap['Bardosa'] = '449'
   stopsNamesIdsMap['Batorego'] = '78'
   stopsNamesIdsMap['Białucha'] = '130'
@@ -364,21 +380,6 @@ var stopsNamesIdsMap = [];
   stopsNamesIdsMap['Św.Gertrudy'] = '2741'
   stopsNamesIdsMap['Św.Wawrzyńca'] = '2742'
 
-function init() {
-    // the next line makes it impossible to see Contacts on the HTC Evo since it
-    // doesn't have a scroll button
-    // document.addEventListener("touchmove", preventBehavior, false);
-    console.log("init");
-
-    if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)) {
-        document.addEventListener("deviceready", onDeviceReady, false);
-    } else {
-        $(document).ready(function () {
-            onDeviceReady();
-        });
-
-    }
-}
 
 function onDeviceReady() {
     console.log("onDeviceReady");
