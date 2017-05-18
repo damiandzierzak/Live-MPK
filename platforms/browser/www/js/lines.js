@@ -180,7 +180,7 @@ var stopsNamesArray = [
 	'Urzędnicza',
 	'Walcownia',
 	'Wawel',
-	'Wańkowicza', 
+	'Wańkowicza',
 	'Wesele',
 	'Wiadukty',
 	'TAURON Arena Kraków Wieczysta',
@@ -200,170 +200,169 @@ var stopsNamesArray = [
 	'Św.Wawrzyńca'
 ];
 
-var stopsNamesIdsMap = [                              
-  ['AWF',										 '113'],
-  ['Agencja Kraków Wschód',                      '462'],
-  ['Bardosa',                                    '449'],
-  ['Batorego',                                   '78'],
-  ['Białucha',                                   '130'],
-  ['Bieńczycka',                                 '867'],
-  ['Bieżanowska',                                '630'],
-  ['Biprostal',                                  '84'],
-  ['Blokowa',                                    '461'],
-  ['Borek Fałęcki',                              '747'],
-  ['Borek Fałęcki I',                            '824'],
-  ['Borsucza',                                   '612'],
-  ['Brama nr 4',                                 '451'],
-  ['Brama nr 5',                                 '453'],
-  ['Bratysławska',                               '61'],
-  ['Bronowice',                                  '89'],
-  ['Bronowice Małe',                             '135'],
-  ['Bronowice Wiadukt',                          '136'],
-  ['Brożka',                                     '613'],
-  ['Centralna',                                   '409'], 
-  ['Centrum Kongresowe ICE',                      '3039'], 
-  ['Chmieleniec',                                 '2691'],
-  ['Cichy Kącik',                                 '87'],
-  ['Cienista',                                    '3037'], 
-  ['Cmentarz Podgórski',                          '621'],
-  ['Cmentarz Rakowicki',                          '124'],
-  ['Cracovia',                                    '318'],
-  ['Cystersów',                                   '129'], 
-  ['Czerwone Maki P+R',                           '3038'], 
-  ['Czyżyny',                                     '407'], 
-  ['DH Wanda',                                    '392'], 
-  ['Dajwór',                                      '915'], 
-  ['Darwina',                                     '435'], 
-  ['Dauna',                                       '632'], 
-  ['Dunikowskiego',                               '388'], 
-  ['Dworcowa',                                    '623'], 
-  ['Dworzec Główny',                              '131'], 
-  ['Dworzec Główny Tunel',                        '1173'], 
-  ['Dworzec Główny Zachód',                       '2608'], 
-  ['Dworzec Płaszów Estakada',                    '2870'], 
-  ['Dworzec Towarowy',                            '70'], 
-  ['Dąbie',                                       '370'], 
-  ['Elektromontaż',                               '464'], 
-  ['Fabryczna',                                   '368'], 
-  ['Filharmonia',                                 '322'], 
-  ['Francesco Nullo',                             '367'], 
-  ['Gromadzka',                                   '560'], 
-  ['Grota-Roweckiego',                            '2687'], 
-  ['Głowackiego',                                 '1049'], 
-  ['Hala Targowa',                                '363'], 
-  ['Jarzębiny',                                   '2685'], 
-  ['Jeżynowa',                                    '452'], 
-  ['Jubilat',                                     '319'], 
-  ['Kabel',                                       '624'], 
-  ['Kampus UJ',                                   '2690'], 
-  ['Kapelanka',                                   '576'], 
-  ['Klasztorna',                                  '429'], 
-  ['Kleeberga',                                   '382'], 
-  ['Klimeckiego',                                 '946'], 
-  ['Kobierzyńska',                                '584'], 
-  ['Koksochemia',                                 '457'], 
-  ['Kombinat',                                    '459'], 
-  ['Komorowskiego',                               '313'], 
-  ['Kopiec Wandy',                                '450'], 
-  ['Korona',                                      '571'], 
-  ['Krowodrza Górka',                             '63'], 
-  ['Kuklińskiego',                                '567'], 
-  ['Kurdwanów',                                   '744'], 
-  ['Limanowskiego',                               '569'], 
-  ['Lipińskiego',                                 '2686'], 
-  ['Lipska',                                      '561'], 
-  ['Lubicz',                                      '126'], 
-  ['M1 Al. Pokoju',                               '930'], 
-  ['Mały Płaszów',                                '1263'], 
-  ['Meksyk',                                      '454'], 
-  ['Miodowa',                                     '362'], 
-  ['Mistrzejowice',                               '375'], 
-  ['Miśnieńska',                                  '2538'], 
-  ['Mrozowa',                                     '460'], 
-  ['Muzeum Inżynierii Miejskiej',                 '2726'], 
-  ['Muzeum Lotnictwa',                            '2811'], 
-  ['Norymberska',                                 '2688'], 
-  ['Nowosądecka',                                 '715'], 
-  ['Nowy Bieżanów',                               '2580'], 
-  ['Nowy Kleparz',                                '71'], 
-  ['Nowy Prokocim',                               '2582'], 
-  ['Ofiar Dąbia',                                 '369'], 
-  ['Oleandry',                                    '823'], 
-  ['Orzeszkowej',                                 '361'], 
-  ['Os.Kolorowe',                                 '413'], 
-  ['Os.Na Skarpie',                               '424'], 
-  ['Os.Piastów',                                  '378'], 
-  ['Os.Zgody',                                    '418'], 
-  ['Os.Złotego Wieku',                            '377'], 
-  ['PH',                                          '466'], 
-  ['PT',                                          '614'], 
-  ['Park Jordana',                                '960'], 
-  ['Piaski Nowe',                                 '716'], 
-  ['Piasta Kołodzieja',                           '379'], 
-  ['Plac Bohaterów Getta',                        '570'], 
-  ['Plac Inwalidów',                              '79'], 
-  ['Plac Wolnica',                                '360'], 
-  ['Plac Wszystkich Świętych',                    '1360'], 
-  ['Plaza',                                       '3033'], 
-  ['Pleszów',                                     '458'], 
-  ['Poczta Główna',                               '357'], 
-  ['Politechnika',                                '73'], 
-  ['Powstańców Wielkopolskich',                   '568'], 
-  ['Prokocim',                                    '637'], 
-  ['Prokocim Szpital',                            '682'], 
-  ['Pędzichów',                                   '72'], 
-  ['Rakowicka',                                   '128'], 
-  ['Reymana',                                     '320'], 
-  ['Rondo 308. Dywizjonu',                        '3041'], 
-  ['Rondo Czyżyńskie',                            '408'], 
-  ['Rondo Grzegórzeckie',                         '365'], 
-  ['Rondo Hipokratesa',                           '2539'], 
-  ['Rondo Kocmyrzowskie im. Ks. Gorzelanego',     '2745'], 
-  ['Rondo Matecznego',                            '610'], 
-  ['Rondo Mogilskie',                             '125'], 
-  ['Rondo Piastowskie',                           '383'], 
-  ['Ruczaj',                                      '589'], 
-  ['Rzebika',                                     '1262'], 
-  ['Rzemieślnicza',                               '611'], 
-  ['Salwator',                                    '311'], 
-  ['Sanktuarium Bożego Miłosierdzia',             '615'], 
-  ['Smolki',                                      '572'], 
-  ['Solvay',                                      '746'], 
-  ['Starowiślna',                                 '358'], 
-  ['Stary Kleparz',                               '3032'], 
-  ['Stella-Sawickiego',                           '112'], 
-  ['Stradom',                                     '359'], 
-  ['Struga',                                      '423'], 
-  ['Suche Stawy',                                 '2548'], 
-  ['Szpital Narutowicza',                         '3036'], 
-  ['Szwedzka',                                    '575'], 
-  ['Słomiana',                                    '577'], 
-  ['TAURON Arena Kraków Al. Pokoju',              '2871'], 
-  ['TAURON Arena Kraków Wieczysta',               '3040'], 
-  ['Teatr Bagatela',                              '77'], 
-  ['Teatr Ludowy',                                '420'], 
-  ['Teatr Variété',                               '2859'], 
-  ['Teligi',                                      '681'], 
-  ['Uniwersytet Ekonomiczny',                     '127'], 
-  ['Uniwersytet Jagielloński',                    '321'], 
-  ['Uniwersytet Pedagogiczny',                    '88'], 
-  ['Urzędnicza',                                  '83'], 
-  ['Walcownia',                                   '463'], 
-  ['Wawel',                                       '325'], 
-  ['Wańkowicza',                                  '2543'], 
-  ['Wesele',                                      '133'], 
-  ['Wiadukty',                                    '434'], 
-  ['Witosa',                                      '718'], 
-  ['Wlotowa',                                     '634'], 
-  ['Wzgórza Krzesławickie',                       '442'], 
-  ['Zabłocie',                                    '1154'], 
-  ['Zajezdnia Nowa Huta',                         '465'], 
-  ['Ćwiklińskiej',                                '679'], 
-  ['Łagiewniki',                                  '922'], 
-  ['Łagiewniki ZUS',                              '2821'], 
-  ['Św.Gertrudy',                                 '2741'], 
-  ['Św.Wawrzyńca',                                '2742'] 
-];                                                 
+var stopsNamesIdsMap = [];
+  stopsNamesIdsMap['AWF'] = '113']
+  stopsNamesIdsMap['Agencja Kraków Wschód'] = '462']
+  stopsNamesIdsMap['Bardosa'] = '449'
+  stopsNamesIdsMap['Batorego'] = '78'
+  stopsNamesIdsMap['Białucha'] = '130'
+  stopsNamesIdsMap['Bieńczycka'] = '867'
+  stopsNamesIdsMap['Bieżanowska'] = '630'
+  stopsNamesIdsMap['Biprostal'] = '84'
+  stopsNamesIdsMap['Blokowa'] = '461'
+  stopsNamesIdsMap['Borek Fałęcki'] = '747'
+  stopsNamesIdsMap['Borek Fałęcki I'] = '824'
+  stopsNamesIdsMap['Borsucza'] = '612'
+  stopsNamesIdsMap['Brama nr 4'] = '451'
+  stopsNamesIdsMap['Brama nr 5'] = '453'
+  stopsNamesIdsMap['Bratysławska'] = '61'
+  stopsNamesIdsMap['Bronowice'] = '89'
+  stopsNamesIdsMap['Bronowice Małe'] = '135'
+  stopsNamesIdsMap['Bronowice Wiadukt'] = '136'
+  stopsNamesIdsMap['Brożka'] = '613'
+  stopsNamesIdsMap['Centralna'] = '409'
+  stopsNamesIdsMap['Centrum Kongresowe ICE'] = '3039'
+  stopsNamesIdsMap['Chmieleniec'] = '2691'
+  stopsNamesIdsMap['Cichy Kącik'] = '87'
+  stopsNamesIdsMap['Cienista'] = '3037'
+  stopsNamesIdsMap['Cmentarz Podgórski'] = '621'
+  stopsNamesIdsMap['Cmentarz Rakowicki'] = '124'
+  stopsNamesIdsMap['Cracovia'] = '318'
+  stopsNamesIdsMap['Cystersów'] = '129'
+  stopsNamesIdsMap['Czerwone Maki P+R'] = '3038'
+  stopsNamesIdsMap['Czyżyny'] = '407'
+  stopsNamesIdsMap['DH Wanda'] = '392'
+  stopsNamesIdsMap['Dajwór'] = '915'
+  stopsNamesIdsMap['Darwina'] = '435'
+  stopsNamesIdsMap['Dauna'] = '632'
+  stopsNamesIdsMap['Dunikowskiego'] = '388'
+  stopsNamesIdsMap['Dworcowa'] = '623'
+  stopsNamesIdsMap['Dworzec Główny'] = '131'
+  stopsNamesIdsMap['Dworzec Główny Tunel'] = '1173'
+  stopsNamesIdsMap['Dworzec Główny Zachód'] = '2608'
+  stopsNamesIdsMap['Dworzec Płaszów Estakada'] = '2870'
+  stopsNamesIdsMap['Dworzec Towarowy'] = '70'
+  stopsNamesIdsMap['Dąbie'] = '370'
+  stopsNamesIdsMap['Elektromontaż'] = '464'
+  stopsNamesIdsMap['Fabryczna'] = '368'
+  stopsNamesIdsMap['Filharmonia'] = '322'
+  stopsNamesIdsMap['Francesco Nullo'] = '367'
+  stopsNamesIdsMap['Gromadzka'] = '560'
+  stopsNamesIdsMap['Grota-Roweckiego'] = '2687'
+  stopsNamesIdsMap['Głowackiego'] = '1049'
+  stopsNamesIdsMap['Hala Targowa'] = '363'
+  stopsNamesIdsMap['Jarzębiny'] = '2685'
+  stopsNamesIdsMap['Jeżynowa'] = '452'
+  stopsNamesIdsMap['Jubilat'] = '319'
+  stopsNamesIdsMap['Kabel'] = '624'
+  stopsNamesIdsMap['Kampus UJ'] = '2690'
+  stopsNamesIdsMap['Kapelanka'] = '576'
+  stopsNamesIdsMap['Klasztorna'] = '429'
+  stopsNamesIdsMap['Kleeberga'] = '382'
+  stopsNamesIdsMap['Klimeckiego'] = '946'
+  stopsNamesIdsMap['Kobierzyńska'] = '584'
+  stopsNamesIdsMap['Koksochemia'] = '457'
+  stopsNamesIdsMap['Kombinat'] = '459'
+  stopsNamesIdsMap['Komorowskiego'] = '313'
+  stopsNamesIdsMap['Kopiec Wandy'] = '450'
+  stopsNamesIdsMap['Korona'] = '571'
+  stopsNamesIdsMap['Krowodrza Górka'] = '63'
+  stopsNamesIdsMap['Kuklińskiego'] = '567'
+  stopsNamesIdsMap['Kurdwanów'] = '744'
+  stopsNamesIdsMap['Limanowskiego'] = '569'
+  stopsNamesIdsMap['Lipińskiego'] = '2686'
+  stopsNamesIdsMap['Lipska'] = '561'
+  stopsNamesIdsMap['Lubicz'] = '126'
+  stopsNamesIdsMap['M1 Al. Pokoju'] = '930'
+  stopsNamesIdsMap['Mały Płaszów'] = '1263'
+  stopsNamesIdsMap['Meksyk'] = '454'
+  stopsNamesIdsMap['Miodowa'] = '362'
+  stopsNamesIdsMap['Mistrzejowice'] = '375'
+  stopsNamesIdsMap['Miśnieńska'] = '2538'
+  stopsNamesIdsMap['Mrozowa'] = '460'
+  stopsNamesIdsMap['Muzeum Inżynierii Miejskiej'] = '2726'
+  stopsNamesIdsMap['Muzeum Lotnictwa'] = '2811'
+  stopsNamesIdsMap['Norymberska'] = '2688'
+  stopsNamesIdsMap['Nowosądecka'] = '715'
+  stopsNamesIdsMap['Nowy Bieżanów'] = '2580'
+  stopsNamesIdsMap['Nowy Kleparz'] = '71'
+  stopsNamesIdsMap['Nowy Prokocim'] = '2582'
+  stopsNamesIdsMap['Ofiar Dąbia'] = '369'
+  stopsNamesIdsMap['Oleandry'] = '823'
+  stopsNamesIdsMap['Orzeszkowej'] = '361'
+  stopsNamesIdsMap['Os.Kolorowe'] = '413'
+  stopsNamesIdsMap['Os.Na Skarpie'] = '424'
+  stopsNamesIdsMap['Os.Piastów'] = '378'
+  stopsNamesIdsMap['Os.Zgody'] = '418'
+  stopsNamesIdsMap['Os.Złotego Wieku'] = '377'
+  stopsNamesIdsMap['PH'] = '466'
+  stopsNamesIdsMap['PT'] = '614'
+  stopsNamesIdsMap['Park Jordana'] = '960'
+  stopsNamesIdsMap['Piaski Nowe'] = '716'
+  stopsNamesIdsMap['Piasta Kołodzieja'] = '379'
+  stopsNamesIdsMap['Plac Bohaterów Getta'] = '570'
+  stopsNamesIdsMap['Plac Inwalidów'] = '79'
+  stopsNamesIdsMap['Plac Wolnica'] = '360'
+  stopsNamesIdsMap['Plac Wszystkich Świętych'] = '1360'
+  stopsNamesIdsMap['Plaza'] = '3033'
+  stopsNamesIdsMap['Pleszów'] = '458'
+  stopsNamesIdsMap['Poczta Główna'] = '357'
+  stopsNamesIdsMap['Politechnika'] = '73'
+  stopsNamesIdsMap['Powstańców Wielkopolskich'] = '568'
+  stopsNamesIdsMap['Prokocim'] = '637'
+  stopsNamesIdsMap['Prokocim Szpital'] = '682'
+  stopsNamesIdsMap['Pędzichów'] = '72'
+  stopsNamesIdsMap['Rakowicka'] = '128'
+  stopsNamesIdsMap['Reymana'] = '320'
+  stopsNamesIdsMap['Rondo 308. Dywizjonu'] = '3041'
+  stopsNamesIdsMap['Rondo Czyżyńskie'] = '408'
+  stopsNamesIdsMap['Rondo Grzegórzeckie'] = '365'
+  stopsNamesIdsMap['Rondo Hipokratesa'] = '2539'
+  stopsNamesIdsMap['Rondo Kocmyrzowskie im. Ks. Gorzelanego'] = '2745'
+  stopsNamesIdsMap['Rondo Matecznego'] = '610'
+  stopsNamesIdsMap['Rondo Mogilskie'] = '125'
+  stopsNamesIdsMap['Rondo Piastowskie'] = '383'
+  stopsNamesIdsMap['Ruczaj'] = '589'
+  stopsNamesIdsMap['Rzebika'] = '1262'
+  stopsNamesIdsMap['Rzemieślnicza'] = '611'
+  stopsNamesIdsMap['Salwator'] = '311'
+  stopsNamesIdsMap['Sanktuarium Bożego Miłosierdzia'] = '615'
+  stopsNamesIdsMap['Smolki'] = '572'
+  stopsNamesIdsMap['Solvay'] = '746'
+  stopsNamesIdsMap['Starowiślna'] = '358'
+  stopsNamesIdsMap['Stary Kleparz'] = '3032'
+  stopsNamesIdsMap['Stella-Sawickiego'] = '112'
+  stopsNamesIdsMap['Stradom'] = '359'
+  stopsNamesIdsMap['Struga'] = '423'
+  stopsNamesIdsMap['Suche Stawy'] = '2548'
+  stopsNamesIdsMap['Szpital Narutowicza'] = '3036'
+  stopsNamesIdsMap['Szwedzka'] = '575'
+  stopsNamesIdsMap['Słomiana'] = '577'
+  stopsNamesIdsMap['TAURON Arena Kraków Al. Pokoju'] = '2871'
+  stopsNamesIdsMap['TAURON Arena Kraków Wieczysta'] = '3040'
+  stopsNamesIdsMap['Teatr Bagatela'] = '77'
+  stopsNamesIdsMap['Teatr Ludowy'] = '420'
+  stopsNamesIdsMap['Teatr Variété'] = '2859'
+  stopsNamesIdsMap['Teligi'] = '681'
+  stopsNamesIdsMap['Uniwersytet Ekonomiczny'] = '127'
+  stopsNamesIdsMap['Uniwersytet Jagielloński'] = '321'
+  stopsNamesIdsMap['Uniwersytet Pedagogiczny'] = '88'
+  stopsNamesIdsMap['Urzędnicza'] = '83'
+  stopsNamesIdsMap['Walcownia'] = '463'
+  stopsNamesIdsMap['Wawel'] = '325'
+  stopsNamesIdsMap['Wańkowicza'] = '2543'
+  stopsNamesIdsMap['Wesele'] = '133'
+  stopsNamesIdsMap['Wiadukty'] = '434'
+  stopsNamesIdsMap['Witosa'] = '718'
+  stopsNamesIdsMap['Wlotowa'] = '634'
+  stopsNamesIdsMap['Wzgórza Krzesławickie'] = '442'
+  stopsNamesIdsMap['Zabłocie'] = '1154'
+  stopsNamesIdsMap['Zajezdnia Nowa Huta'] = '465'
+  stopsNamesIdsMap['Ćwiklińskiej'] = '679'
+  stopsNamesIdsMap['Łagiewniki'] = '922'
+  stopsNamesIdsMap['Łagiewniki ZUS'] = '2821'
+  stopsNamesIdsMap['Św.Gertrudy'] = '2741'
+  stopsNamesIdsMap['Św.Wawrzyńca'] = '2742'
 
 function init() {
     // the next line makes it impossible to see Contacts on the HTC Evo since it
@@ -394,9 +393,9 @@ function initListeners() {
 
 function performRequest(stopName, lineNr) {
     console.log("perform request");
-    $('#error-msg').text('#stopId', '#lineNr');
+    $('#error-msg').text('#stopName', '#stopsNamesIdsMap[stopName]', '#lineNr');
     var queryString =
-        'http://www.ttss.krakow.pl/internetservice/services/passageInfo/stopPassages/stop?stop=' + routesMap[stopName] + '&mode=departure';
+        'http://www.ttss.krakow.pl/internetservice/services/passageInfo/stopPassages/stop?stop=' + stopsNamesIdsMap[stopName] + '&mode=departure';
 
     $.getJSON(queryString, function (results) {
         var resultText = "";
