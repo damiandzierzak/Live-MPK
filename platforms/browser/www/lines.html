@@ -50,52 +50,29 @@
             </ul>
         </div>
 
-        <div class="form-group">
-            <label for="lineNr">Line:</label>
-            <input class="form-control" type="text" class="form-control" id="lineNr">
-        </div>
+		<main class="bmd-layout-content">
+			<div class="bs-example">
+                <h2>Your Line:</h2>
+				<input type="number" class="typeahead tt-query" autocomplete="off" spellcheck="false" id="lineNr">
+            </div>
 
-        <div class="form-group">
-            <label for="usr">StopID:</label>
-            <input class="form-control" type="text" class="form-control" id="stopId">
-        </div>
+		    <div class="bs-example">
+                <h2>Your Stop Name:</h2>
+				<input type="text" class="typeahead tt-query" autocomplete="off" spellcheck="false" id="stopId">
+            </div>
 
-        <main class="bmd-layout-content">
             <div class="container">
-                <button id="request-btn" data-role="button" data-icon="search" class="btn btn-primary btn-lg btn-block" onclick="performRequest($('#stopId').val(), $('#lineNr').val())">Perform request</button>
+                <button id="request-btn" data-role="button" data-icon="search" class="btn btn-primary btn-lg btn-block" onclick="performRequest($('#stopId').val(), $('#lineNr').val())">Go</button>
                 <div id="error-msg" />
             </div>
-            <div class="bs-example">
-                <h2>Type your favorite car name</h2>
-                <input type="text" class="typeahead tt-query" autocomplete="off" spellcheck="false">
-            </div>
+
         </main>
+		
+   
     </div>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            // Defining the local dataset
-            var cars = ['Audi', 'BMW', 'Bugatti', 'Ferrari', 'Ford', 'Lamborghini', 'Mercedes Benz', 'Porsche', 'Rolls-Royce', 'Volkswagen'];
-
-            // Constructing the suggestion engine
-            var cars = new Bloodhound({
-                datumTokenizer: Bloodhound.tokenizers.whitespace,
-                queryTokenizer: Bloodhound.tokenizers.whitespace,
-                local: cars
-            });
-
-            // Initializing the typeahead
-            $('.typeahead').typeahead({
-                hint: true,
-                highlight: true,
-                /* Enable substring highlighting */
-                minLength: 1 /* Specify minimum characters required for showing result */
-            }, {
-                name: 'cars',
-                source: cars
-            });
-        });
-
-    </script>
+    
+	<script type="text/javascript" src="js/typeahead-stops.js"></script>
+	
 </body>
 
 </html>
