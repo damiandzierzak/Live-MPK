@@ -45,34 +45,37 @@
             </header>
             <ul class="list-group">
                 <a href="index.html" class="list-group-item">Home</a>
-				<a href="lines.html" class="list-group-item">Lines</a>
+                <a href="lines.html" class="list-group-item">Lines</a>
                 <a href="arrivals.html" class="list-group-item">Arrivals</a>
             </ul>
         </div>
 
-		<main class="bmd-layout-content">
-			<div class="bs-example">
+        <main class="bmd-layout-content">
+            <div class="bs-example">
                 <h2>Your Line:</h2>
-				<input type="text" class="typeaheadLines tt-query" autocomplete="off" spellcheck="false" id="lineNr">
+                <input type="text" class="typeaheadLines tt-query" autocomplete="off" spellcheck="false" id="lineNr">
             </div>
 
-		    <div class="bs-example">
+            <div class="bs-example">
                 <h2>Your Stop Name:</h2>
-				<input type="text" class="typeaheadStops tt-query" autocomplete="off" spellcheck="false" id="stopId">
+                <input type="text" class="typeaheadStops tt-query" autocomplete="off" spellcheck="false" id="stopId">
             </div>
 
             <div class="container">
                 <button id="request-btn" data-role="button" data-icon="search" class="btn btn-primary btn-lg btn-block" onclick="performRequest($('#stopId').val(), $('#lineNr').val())">Go</button>
-                <div id="error-msg" />
+                <div id="error-msg"></div>
+                <div id="results-list">
+                    <ul class="results-ul"></ul>
+                </div>
             </div>
 
         </main>
-		
-   
+
+
     </div>
-    
-	<script type="text/javascript" src="js/typeahead-stops-and-lines.js"></script>
-	
+
+    <script type="text/javascript" src="js/typeahead-stops-and-lines.js"></script>
+
 </body>
 
 </html>
