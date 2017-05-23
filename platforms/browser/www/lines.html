@@ -1,81 +1,40 @@
-<!DOCTYPE html>
-<html>
+<!-- saved from url=(0061)https://framework7.io/kitchen-sink-material/autocomplete.html -->
+<html class="gr__framework7_io">
 
 <head>
-    <!-- Required meta tags-->
-    <meta charset="utf-8">
-    <!-- Your app title -->
-    <title>Live-MPK</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://cdn.rawgit.com/FezVrasta/bootstrap-material-design/dist/dist/bootstrap-material-design.min.css">
-    <link rel="stylesheet" href="css/typehead.css">
-
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="https://maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js"></script>
-    <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
-    <script type="text/javascript" src="js/lines.js"></script>
-    <!-- Bootstrap Material Design -->
-    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-    <script src="https://cdn.rawgit.com/HubSpot/tether/v1.3.4/dist/js/tether.min.js"></script>
-    <script src="https://cdn.rawgit.com/FezVrasta/bootstrap-material-design/dist/dist/bootstrap-material-design.iife.min.js"></script>
-    <script type="text/javascript" src="js/typeahead.bundle.min.js"></script>
-
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <style type="text/css">
+        :root .adsbox,
+        :root #content > #right > .dose > .dosesingle,
+        :root #content > #center > .dose > .dosesingle {
+            display: none !important;
+        }
+    </style>
 </head>
 
-<body onload="init()">
-    <div class="bmd-layout-container bmd-drawer-f-l bmd-drawer-overlay">
-        <header class="bmd-layout-header">
-            <div class="navbar navbar-light bg-faded">
-                <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-p1">
-                    <span class="sr-only">Toggle drawer</span>
-                    <i class="material-icons">menu</i>
-                </button>
-                <ul class="nav navbar-nav">
-                    <li class="nav-item">Lines</li>
+<body data-gr-c-s-loaded="true" cz-shortcut-listen="true">
+    <div data-page="autocomplete" class="page">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="left"><a href="index.html" class="back link"><i class="icon icon-back icon-only"></i></a></div>
+                <div class="center sliding">Autocomplete</div>
+            </div>
+        </div>
+        <div class="page-content">
+            <div class="list-block">
+                <ul>
+                    <li class="item-content">   
+                        <div class="item-inner">
+                            <div class="item-title floating-label">Favorite Fruit</div>
+                            <div class="item-input">
+                                <input type="text" id="autocomplete-dropdown">
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </div>
-        </header>
-        <div id="dw-p1" class="bmd-layout-drawer bg-faded">
-            <header>
-                <a class="navbar-brand">Menu</a>
-            </header>
-            <ul class="list-group">
-                <a href="index.html" class="list-group-item">Home</a>
-                <a href="lines.html" class="list-group-item">Lines</a>
-                <a href="arrivals.html" class="list-group-item">Arrivals</a>
-            </ul>
         </div>
-
-        <main class="bmd-layout-content">
-            <div class="bs-example">
-                <h2>Your Line:</h2>
-                <input type="text" class="typeaheadLines tt-query" autocomplete="off" spellcheck="false" id="lineNr">
-            </div>
-
-            <div class="bs-example">
-                <h2>Your Stop Name:</h2>
-                <input type="text" class="typeaheadStops tt-query" autocomplete="off" spellcheck="false" id="stopId">
-            </div>
-
-            <div class="container">
-                <button id="request-btn" data-role="button" data-icon="search" class="btn btn-primary btn-lg btn-block" onclick="performRequest($('#stopId').val(), $('#lineNr').val())">Go</button>
-                <div id="error-msg"></div>
-                <div id="results-list">
-                    <ul class="results-ul"></ul>
-                </div>
-            </div>
-
-        </main>
-
-
     </div>
-
-    <script type="text/javascript" src="js/typeahead-stops-and-lines.js"></script>
-
 </body>
 
 </html>
