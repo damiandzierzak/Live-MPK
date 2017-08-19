@@ -59,43 +59,49 @@ function performRequest(stopName, lineNr) {
     var queryString =
         'http://www.ttss.krakow.pl/internetservice/services/passageInfo/stopPassages/stop?stop=' + stopsNamesIdsMap[stopName] + '&mode=departure';
 
-    var $$ = Dom7;
     $$.getJSON(queryString, function (results) {
-		alert("Start json:" + queryString);
         var resultText = "";
         var arr = [];
         var direction = [];
         for (i = 0; i < results.actual.length; i++) {
-            if (results.actual[i].routeId == lineNr) {
+            if (results.actual[i].patternText == lineNr) {
                 console.log(parseTime(results.actual[i].mixedTime));
                 arr.push(parseTime(results.actual[i].mixedTime));
                 direction.push(results.actual[i].direction);
             }
         }
-		alert("After for json");
-        var ObjUl = $('ul.results-ul');
-        ObjUl.addClass("list-group");
-        for (i = 0; i < arr.length; i++) {
-            var Objli = $('<li></li>');
-            Objli.addClass("list-group-item");
-            Objli.text("Kierunek: " + direction[i] + " Odjazd za: " + arr[i]);
-
-            ObjUl.append(Objli);
-        }
 		
-		alert("Done json");
+		var myList = myApp.virtualList('.list-block', {
+			// Array with items data
+			items: [
+				{
+					title: "Kierunek: " + direction[0] + " Odjazd za: " + arr[0],
+				},
+			],
+			// Template 7 template to render each item
+			template: '<li class="item-content">' +
+						  '<div class="item-inner">' +
+							  '<div class="item-title">{{title}}</div>' +
+						  '</div>' +
+					   '</li>'
+		});            
+		
+        for (i = 1; i < arr.length; i++) {
+            alert("Kierunek: " + direction[i] + " Odjazd za: " + arr[i]);
+			myList.appendItem({title: "Kierunek: " + direction[i] + " Odjazd za: " + arr[i]});
+        }
     }).fail(function (jqXHR) {
         $('#error-msg').text("Error retrieving data. " + jqXHR.statusText);
     });
 
 }
 
-
+/*
 function getRoatsList(lineNr) {
     var queryString =
         'http://www.ttss.krakow.pl/internetservice/services/routeInfo/routeStops?routeId=' + lineNr;
 
-}
+}*/
 
 
 function parseTime(time) {
