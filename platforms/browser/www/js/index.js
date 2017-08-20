@@ -47,17 +47,20 @@ function setSaveButtonClickListener() {
 }
 
 function fillSavedData() {
-    var storedData = myApp.formGetData('my-favourites');
-    console.log(storedData['stop']);
-    $$('#autocomplete-dropdown-stop-popup').val(storedData['stop']);
-    $$('#autocomplete-dropdown-lines-popup').val(storedData['lines']);
+    //var storedData = myApp.formGetData('my-favourites');
+    //console.log(storedData['stop']);
+    $$('#autocomplete-dropdown-stop-popup').val(window.localStorage.getItem("key-stop"));
+    $$('#autocomplete-dropdown-lines-popup').val(window.localStorage.getItem("key-line"));
 }
 
 function setData() {
-    var storedData = myApp.formStoreData('my-favourites', {
-        'stop': $$('#autocomplete-dropdown-stop-popup').val(),
-        'line': $$('#autocomplete-dropdown-lines-popup').val()
-    });
+    // var storedData = myApp.formStoreData('my-favourites', {
+    //     'stop': $$('#autocomplete-dropdown-stop-popup').val(),
+    //     'line': $$('#autocomplete-dropdown-lines-popup').val()
+    // });
+
+    window.localStorage.setItem("key-stop", $$('#autocomplete-dropdown-stop-popup').val())
+    window.localStorage.setItem("key-line", $$('#autocomplete-dropdown-lines-popup').val())
 }
 
 
