@@ -38,9 +38,17 @@
                                 <li>
                                     <a href="lines.html" class="item-link close-panel">
                                         <div class="item-content">
-                                            <div class="item-media"><i class="icon icon-f7"></i></div>
+                                            <div class="item-media"><i class="icon"></i></div>
                                             <div class="item-inner">
                                                 <div class="item-title">Line&Stop</div>
+                                            </div>
+                                        </div>
+                                    </a>
+									<a href="addfavorite.html" class="item-link close-panel">
+                                        <div class="item-content">
+                                            <div class="item-media"><i class="icon"></i></div>
+                                            <div class="item-inner">
+                                                <div class="item-title">Add Favorite</div>
                                             </div>
                                         </div>
                                     </a>
@@ -80,40 +88,24 @@
                         <div id="content">
                             <div id="no-favourite-container">
                                 <div id="no-favourite-info">Nie masz dodanych ulubionych linii. Kliknij przycisk aby dodać.</div>
-                                <a href="#" id="add-button" class="button button-raised button-fill color-purple">Dodaj</a>
-                            </div>
-                            <div id="favourite-list">
-                                <p>Lista</p>
-                            </div>
-
-                        </div>
-
-                        <div class="popup">
-                            <div class="content-block">
-                                <div class="item-inner">
-                                    <div class="item-title floating-label">Line Number</div>
-                                    <div class="item-input">
-                                        <input type="text" id="autocomplete-dropdown-lines-popup">
-                                    </div>
-                                </div>
-                                <div class="item-inner">
-                                    <div class="item-title floating-label">Stop Name</div>
-                                    <div class="item-input">
-                                        <input type="text" id="autocomplete-dropdown-stops-popup">
-                                    </div>
-                                </div>
-                                <a href="#" id="save_button" class="button button-round button-fill active">Add</a>
-                                <p><a href="#" class="close-popup">Close me</a></p>
+                                <a href="addfavorite.html" id="add-button" class="button button-raised button-fill color-purple">Dodaj</a>
                             </div>
                         </div>
+							<div id="favourite-list-show">
+								<!-- Virtual List -->
+								<div class="list-block virtual-list">
+								<!-- keep it empty -->
+								</div>
+							</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="js/stops-and-lines-names.js"></script>
     <script type="text/javascript" src="js/framework7.min.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript" src="js/stops-and-lines-names.js"></script>
+	<script type="text/javascript" src="js/addfavorite.js"></script>
     <script type="text/javascript" src="js/lines.js"></script>
 </body>
 
