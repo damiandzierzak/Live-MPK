@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <script src="cordova.js"></script>
     <!-- Required meta tags-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
@@ -13,10 +14,12 @@
     <link rel="stylesheet" href="css/framework7.material.colors.min.css">
     <!-- Path to Framework7 iOS related color styles -->
     <link rel="stylesheet" href="css/framework7.material.min.css">
+    <link rel="stylesheet" href="css/index.css">
     <!-- Path to your custom app styles-->
+
 </head>
 
-<body>
+<body onload="init()">
     <div class="statusbar-overlay"></div>
     <div class="panel-overlay"></div>
     <div class="panel panel-left panel-cover">
@@ -29,6 +32,7 @@
                         </div>
                     </div>
                     <div class="page-content">
+
                         <div class="list-block">
                             <ul>
                                 <li>
@@ -73,16 +77,36 @@
                         </div>
                     </div>
                     <div class="page-content">
+                        <div id="content">
+                            <div id="no-favourite-info">Nie masz dodanych ulubionych linii. Kliknij przycisk aby dodać.</div>
+                            <a href="#" id="add-button" class="button button-raised button-fill color-purple">Dodaj</a>
+                        </div>
 
+                        <div class="popup">
+                            <div class="content-block">
+                                <div class="item-inner">
+                                    <div class="item-title floating-label">Line Number</div>
+                                    <div class="item-input">
+                                        <input type="text" id="autocomplete-dropdown-lines-popup">
+                                    </div>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title floating-label">Stop Name</div>
+                                    <div class="item-input">
+                                        <input type="text" id="autocomplete-dropdown-stops-popup">
+                                    </div>
+                                </div>
+                                <a href="#" id="save_button" class="button button-round button-fill active">Add</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
     <script type="text/javascript" src="js/framework7.min.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
-	<script type="text/javascript" src="js/stops-and-lines-names.js"></script>
+    <script type="text/javascript" src="js/stops-and-lines-names.js"></script>
     <script type="text/javascript" src="js/lines.js"></script>
 </body>
 

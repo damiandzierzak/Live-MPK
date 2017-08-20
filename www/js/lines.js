@@ -8,9 +8,9 @@ myApp.onPageInit('autocomplete', function (page) {
 function setGoOnCLickListener() {
     $$('#go_button').on('click', function () {
         console.log("Stop: " + $$('#autocomplete-dropdown-stops').val() +
-			  " Line: " + $$('#autocomplete-dropdown-lines').val());
-			  
-		performRequest($$('#autocomplete-dropdown-stops').val(), $$('#autocomplete-dropdown-lines').val());
+            " Line: " + $$('#autocomplete-dropdown-lines').val());
+
+        performRequest($$('#autocomplete-dropdown-stops').val(), $$('#autocomplete-dropdown-lines').val());
     });
 
 }
@@ -69,43 +69,49 @@ function performRequest(stopName, lineNr) {
                 direction.push(results.actual[i].direction);
             }
         }
-		
-		var myList = myApp.virtualList('.list-block.virtual-list', {
-				// Array with items data
-				items: [
-					{
-						title: "Tu się pojawią odjazdy"
+
+        var myList = myApp.virtualList('.list-block.virtual-list', {
+            // Array with items data
+            items: [
+                {
+                    title: "Tu się pojawią odjazdy"
 					},
 				],
-				// Template 7 template to render each item
-				template: '<li class="item-content">' +
-							  '<div class="item-inner">' +
-								  '<div class="item-title">{{title}}</div>' +
-							  '</div>' +
-						   '</li>'
-			});
-		
-		if (0 < arr.length) {
-			for (i = 0; i < arr.length; i++) {
-				if (0 == i) {
-					myList.replaceItem(0,{title: "Kierunek: " + direction[i] + " Odjazd za: " + arr[i]});
-				} else {
-					myList.appendItem({title: "Kierunek: " + direction[i] + " Odjazd za: " + arr[i]});
-				}
-			}
-		} else {
-			myList.replaceItem(0,{title: "Nie znaleziono odjazdów"});
-		}
+            // Template 7 template to render each item
+            template: '<li class="item-content">' +
+                '<div class="item-inner">' +
+                '<div class="item-title">{{title}}</div>' +
+                '</div>' +
+                '</li>'
+        });
+
+        if (0 < arr.length) {
+            for (i = 0; i < arr.length; i++) {
+                if (0 == i) {
+                    myList.replaceItem(0, {
+                        title: "Kierunek: " + direction[i] + " Odjazd za: " + arr[i]
+                    });
+                } else {
+                    myList.appendItem({
+                        title: "Kierunek: " + direction[i] + " Odjazd za: " + arr[i]
+                    });
+                }
+            }
+        } else {
+            myList.replaceItem(0, {
+                title: "Nie znaleziono odjazdów"
+            });
+        }
     });
 
 }
 
-/*
+
 function getRoatsList(lineNr) {
     var queryString =
         'http://www.ttss.krakow.pl/internetservice/services/routeInfo/routeStops?routeId=' + lineNr;
 
-}*/
+}
 
 
 function parseTime(time) {
