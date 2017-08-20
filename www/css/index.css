@@ -9,6 +9,14 @@
     left: 0;
     right: 0;
     margin: auto;
-    width: 400px;
+    width: 200px;
     height: 130px;
+}
+
+#no-favourite-container {
+    display: none
+}
+
+#favourite-list {
+    display: none
 }

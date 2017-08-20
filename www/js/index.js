@@ -24,6 +24,15 @@ function init() {
 function onDeviceReady() {
     console.log("onDeviceReady");
     setAddButtonListener();
+    checkFavourites();
+}
+
+function checkFavourites() {
+    if (window.localStorage.getItem("key-stop") === null) {
+        $$('#no-favourite-container').show()
+    } else {
+        $$('#favourite-list').show()
+    }
 }
 
 myApp.onPageInit('autocomplete', function (page) {
