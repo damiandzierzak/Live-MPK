@@ -7,13 +7,24 @@ myApp.onPageInit('autocomplete', function (page) {
 
 function setAddOnCLickListener() {
     $$('#add_button').on('click', function () {
-        console.log("Favorite: Stop: " + $$('#autocomplete-dropdown-stops-popup').val() +
-            " Line: " + $$('#autocomplete-dropdown-lines-popup').val());
+        if (validateInputs()) {
+            console.log("Favorite: Stop: " + $$('#autocomplete-dropdown-stops-popup').val() +
+                " Line: " + $$('#autocomplete-dropdown-lines-popup').val());
 
-        setData();
-		checkFavourites();
+            setData($$('#autocomplete-dropdown-stops-popup').val(), $$('#autocomplete-dropdown-lines-popup').val());
+            checkFavourites();
+            mainView.router.back()
+        }
     });
 
+}
+
+function validateInputs() {
+    if (!$$('#autocomplete-dropdown-stops-popup').val() || !$$('#autocomplete-dropdown-lines-popup').val()) {
+        myApp.alert(' Wypelnij wszystkie pola! ');
+        return false;
+    }
+    return true;
 }
 
 function initStopsListFav() {

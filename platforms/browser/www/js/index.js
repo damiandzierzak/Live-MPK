@@ -27,35 +27,57 @@ function onDeviceReady() {
     setAddButtonListener();
     checkFavourites();
 }
+var myList;
 
 function checkFavourites() {
     if (window.localStorage.getItem("key-stop") === null) {
         $$('#no-favourite-container').show()
     } else {
-		var myList = myApp.virtualList('.list-block.virtual-list', {
+        myList = myApp.virtualList('.list-block.virtual-list', {
             // Array with items data
             items: [
                 {
-                    title: "Tu się pojawią ulubione"
+                    title: "Tu się pojawią ulubione",
+                    id: "0"
 					},
 				],
             // Template 7 template to render each item
             template: '<li class="item-content">' +
                 '<div class="item-inner">' +
-                '<div class="item-title">{{title}}</div>' +
+                '<div class="item-title">{{title}}</div><div class="remove" onclick="removeItem({{id}})">X</div>' +
                 '</div>' +
                 '</li>'
         });
-		
 
-            myList.replaceItem(0, {
-                title: "Linia: " + window.localStorage.getItem("key-line") + " Przystanek: " + window.localStorage.getItem("key-stop")
-            });
-                
-        
-		$$('#no-favourite-container').hide()
+        var stopsList = JSON.parse(window.localStorage.getItem("key-stops-list"));
+        var lineList = JSON.parse(window.localStorage.getItem("key-line-list"));
+
+        if (stopsList != null) {
+            for (var i = 0; i <= stopsList.length; i++) {
+                myList.replaceItem(i, {
+                    title: "Linia: " + lineList[i] + " Przystanek: " + stopsList[i],
+                    id: i
+                });
+            }
+        }
+
+        $$('#no-favourite-container').hide()
         $$('#favourite-list').show()
     }
+}
+
+function removeItem(id) {
+    console.log("removing item: " + id);
+    myList.deleteItem(id);
+    var stopsList = JSON.parse(window.localStorage.getItem("key-stops-list"));
+    var lineList = JSON.parse(window.localStorage.getItem("key-line-list"));
+
+    stopsList.splice(id, 1);
+    lineList.splice(id, 1);
+
+    window.localStorage.setItem("key-stops-list", JSON.stringify(stopsList));
+    window.localStorage.setItem("key-line-list", JSON.stringify(lineList));
+    //window.localStorage.removeItem();
 }
 
 myApp.onPageInit('autocomplete', function (page) {
@@ -79,25 +101,27 @@ function setSaveButtonClickListener() {
     });
 }
 
-function fillSavedData() {
-    //var storedData = myApp.formGetData('my-favourites');
-    //console.log(storedData['stop']);
-    $$('#autocomplete-dropdown-stops-popup').val(window.localStorage.getItem("key-stop"));
-    $$('#autocomplete-dropdown-lines-popup').val(window.localStorage.getItem("key-line"));
-}
 
-function setData() {
-    // var storedData = myApp.formStoreData('my-favourites', {
-    //     'stop': $$('#autocomplete-dropdown-stops-popup').val(),
-    //     'line': $$('#autocomplete-dropdown-lines-popup').val()
-    // });
+function setData(stop, line) {
+    var stopsList = JSON.parse(window.localStorage.getItem("key-stops-list"));
+    var lineList = JSON.parse(window.localStorage.getItem("key-line-list"));
 
-    window.localStorage.setItem("key-stop", $$('#autocomplete-dropdown-stops-popup').val())
-    window.localStorage.setItem("key-line", $$('#autocomplete-dropdown-lines-popup').val())
+    if (stopsList == null) {
+        stopsList = [];
+    }
+    if (lineList == null) {
+        lineList = [];
+    }
+
+    stopsList.push(stop);
+
+    lineList.push(line);
+
+    window.localStorage.setItem("key-stops-list", JSON.stringify(stopsList))
+    window.localStorage.setItem("key-line-list", JSON.stringify(lineList))
 }
 
 
 function displayData() {
     // $$
 }
-
