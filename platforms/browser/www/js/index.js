@@ -68,7 +68,8 @@ function displayFavouritesList() {
         renderItem: function (index, item) {
             return "<li class=\"item-content\">" +
                 "<div class=\"item-inner\">" +
-                "<a id=\"open-favourite\" href=\"favourite_details.html\" class=\"item-link\"  onclick=\"onFavouriteItemClicked(" + index + "," + item.stopId + "," + item.lineNumber + ")\">" +
+                //"<a id=\"open-favourite\" href=\"favourite_details.html\" class=\"item-link\"  onclick=\"onFavouriteItemClicked(" + index + "," + item.stopId + "," + item.lineNumber + ")\">" +
+                "<a href=\"favourite_details.html\" id=\"open-favourite\" onclick=\"clicked(" + index + ")\">" +
                 "<div class=\"item-title\" >" + item.title + "</div>" +
                 "</a>" +
                 "<div class=\"remove\" onclick=\"removeFavouriteItem(" + index + ")\">X</div>" +
@@ -79,6 +80,11 @@ function displayFavouritesList() {
 
     $$("#no-favourite-container").hide();
     $$("#favourite-list").show()
+}
+
+function clicked(id){
+    console.log("item clicked id:" + id);
+    console.log("item clicked id:" + myList.items[0].title);
 }
 
 function onFavouriteItemClicked(id, stopName, lineNumber) {
