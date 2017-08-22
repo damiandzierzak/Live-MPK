@@ -1,10 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+
 </head>
+
 <body>
-$END$
+<div data-page="stops-page" class="page">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left"><a href="index.html" class="back link"><i class="icon icon-back icon-only"></i></a></div>
+            <div class="center sliding">Stop</div>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="list-block">
+            <ul>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title floating-label">Stop Name</div>
+                        <div class="item-input">
+                            <input type="text" id="autocomplete-stop-name">
+                        </div>
+                    </div>
+                </li>
+                <a href="#" id="stop-name-search-button" class="button button-round button-fill active">Go</a>
+            </ul>
+        </div>
+        <!-- Virtual List -->
+        <div class="list-block virtual-list stops">
+        <!-- keep it empty -->
+        </div>
+    </div>
+</div>
+
 </body>
+
 </html>
