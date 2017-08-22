@@ -31,7 +31,10 @@ function onDeviceReady() {
 
 
 function checkFavourites() {
-    if (window.localStorage.getItem("key-stop") === null) {
+    console.log("key-stop:" + (window.localStorage.getItem("key-stop") === undefined));
+    var stopsList = JSON.parse(window.localStorage.getItem("key-stops-list"));
+
+    if (stopsList === null || stopsList === undefined || stopsList.length === 0) {
         displayNoFavourites();
     } else {
         displayFavouritesList();
@@ -50,6 +53,7 @@ function displayFavouritesList() {
     console.log("displaying data: " + stopsList.length);
 
     var items = [];
+
     for (var i = 0; i < stopsList.length; i++) {
         items.push({
             title: "Linia: " + lineList[i] + " Przystanek: " + stopsList[i],
@@ -57,6 +61,7 @@ function displayFavouritesList() {
             lineNumber: lineList[i]
         });
     }
+
 
     myList = myApp.virtualList("#favourite-list", {
         items: items,
@@ -95,8 +100,16 @@ function removeFavouriteItem(id) {
     stopsList.splice(id, 1);
     lineList.splice(id, 1);
 
-    window.localStorage.setItem("key-stops-list", JSON.stringify(stopsList));
-    window.localStorage.setItem("key-line-list", JSON.stringify(lineList));
+    if (stopsList.length === 0) {
+        window.localStorage.removeItem("key-stops-list");
+        window.localStorage.removeItem("key-line-lis");
+        displayNoFavourites();
+    } else {
+        window.localStorage.setItem("key-stops-list", JSON.stringify(stopsList));
+        window.localStorage.setItem("key-line-list", JSON.stringify(lineList));
+    }
+
+
 }
 
 
@@ -115,6 +128,8 @@ function saveFavouriteData(stop, line) {
         stopsList = [stop];
         lineList = [line];
     } else {
+        stopsList = [];
+        lineList = [];
         stopsList.push(stop);
         lineList.push(line);
     }
@@ -320,7 +335,7 @@ function performFavouriteDetailsRequest() {
     //var stopName = window.sessionStorage.getItem("details-stopName");
     var stopName = "Batorego";
 
-   // var lineNr = window.sessionStorage.getItem("details-lineNumber");
+    // var lineNr = window.sessionStorage.getItem("details-lineNumber");
     var lineNr = "4";
 
     console.log("performFavouriteDetailsRequest stopname: " + stopName + ", line number:" + lineNr);
