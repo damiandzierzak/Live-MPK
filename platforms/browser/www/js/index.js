@@ -288,7 +288,7 @@ function performLinesAndStopsRequest(stopName, lineNr) {
             for (var i = 0; i < results.actual.length; i++) {
                 if (results.actual[i].patternText === lineNr) {
                     items.push({
-                        title: "Linia: " + results.actual[i].direction + " Przystanek: " + results.actual[i].mixedTime
+                        title: "Linia: " + results.actual[i].patternText + " Kierunek: " + results.actual[i].direction + " Odjazd za: " + results.actual[i].mixedTime
                     });
                 }
             }
@@ -356,7 +356,7 @@ function performFavouriteDetailsRequest() {
             for (var i = 0; i < results.actual.length; i++) {
                 if (results.actual[i].patternText === lineNr) {
                     items.push({
-                        title: "Linia: " + results.actual[i].direction + " Przystanek: " + results.actual[i].mixedTime
+                        title: "Linia: " + results.actual[i].patternText + " Kierunek: " + results.actual[i].direction + " Odjazd za: " + results.actual[i].mixedTime
                     });
                 }
             }
