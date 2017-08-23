@@ -12,6 +12,3 @@
     <plugin name="cordova-plugin-http" spec="~1.2.0" />
     <plugin name="cordova-plugin-whitelist" spec="~1.3.2" />
 </widget>
-
-<!-- Don't block any requests -->
-<access origin="*" />

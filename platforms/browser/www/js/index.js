@@ -82,7 +82,7 @@ function displayFavouritesList() {
     $$("#favourite-list").show()
 }
 
-function clicked(id){
+function clicked(id) {
     console.log("item clicked id:" + id);
     console.log("item clicked id:" + myList.items[0].title);
 }
@@ -325,6 +325,77 @@ function parseTime(time) {
         return "Mniej niż minuta";
     }
     return time;
+}
+
+
+// ----------- departures from stops ---------
+
+myApp.onPageInit("stops-page", function (page) {
+    initStopsListForDepartures();
+    setStopsPageGoOnCLickListener();
+});
+
+
+function setStopsPageGoOnCLickListener() {
+    $$("#stop-name-search-button").on("click", function () {
+        console.log("Stop: " + $$("#autocomplete-stop-name").val());
+
+        performStopDeparturesRequest($$("#autocomplete-stop-name").val());
+    });
+
+}
+
+function initStopsListForDepartures() {
+    var autocompleteStops = myApp.autocomplete({
+        input: "#autocomplete-stop-name",
+        openIn: "dropdown",
+        source: function (autocomplete, query, render) {
+            var results = [];
+            if (query.length === 0) {
+                render(results);
+
+                return;
+            }
+            for (var i = 0; i < stopsNamesArray.length; i++) {
+                if (stopsNamesArray[i].toLowerCase().indexOf(query.toLowerCase()) >= 0) results.push(stopsNamesArray[i]);
+            }
+            render(results);
+        }
+    });
+}
+
+
+function performStopDeparturesRequest(stopName) {
+    var queryString =
+        "http://www.ttss.krakow.pl/internetservice/services/passageInfo/stopPassages/stop?stop=" + stopsNamesIdsMap[stopName] + "&mode=departure";
+
+    $$.getJSON(queryString, function (results) {
+        var items = [];
+
+        if (results.actual.length > 0) {
+            for (var i = 0; i < results.actual.length; i++) {
+                items.push({
+                    title: "Linia: " + results.actual[i].patternText + " Kierunek: " + results.actual[i].direction + " Odjazd za: " + results.actual[i].mixedTime
+                });
+            }
+        } else {
+            items.push({
+                title: "Nie znaleziono odjazdów"
+            });
+        }
+        var myList = myApp.virtualList(".list-block.virtual-list.stops", {
+            // Array with items data
+            items: items,
+            renderItem: function (index, item) {
+                return "<li class=\"item-content\">" +
+                    "<div class=\"item-inner\">" +
+                    "<div class=\"item-title\">" + item.title + "</div>" +
+                    "</div>" +
+                    "</li>";
+            }
+        });
+    });
+
 }
 
 
