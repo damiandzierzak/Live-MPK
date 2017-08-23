@@ -25,7 +25,6 @@ function init() {
 
 function onDeviceReady() {
     console.log("onDeviceReady");
-    //setAddFavouriteButtonListener();
     checkFavourites();
 }
 
@@ -50,7 +49,7 @@ function displayFavouritesList() {
     var stopsList = JSON.parse(window.localStorage.getItem("key-stops-list"));
     var lineList = JSON.parse(window.localStorage.getItem("key-line-list"));
 
-    console.log("displaying data: " + stopsList.length);
+    console.log("displayFavouritesList stopsList.length: " + stopsList.length);
 
     var items = [];
 
@@ -68,8 +67,7 @@ function displayFavouritesList() {
         renderItem: function (index, item) {
             return "<li class=\"item-content\">" +
                 "<div class=\"item-inner\">" +
-                //"<a id=\"open-favourite\" href=\"favourite_details.html\" class=\"item-link\"  onclick=\"onFavouriteItemClicked(" + index + "," + item.stopId + "," + item.lineNumber + ")\">" +
-                "<a href=\"favourite_details.html\" id=\"open-favourite\" onclick=\"clicked(" + index + ")\">" +
+                "<a href=\"favourite_details.html\" id=\"open-favourite\" class=\"item-link\" onclick=\"onFavouriteItemClicked(" + index + ")\"  >" +
                 "<div class=\"item-title\" >" + item.title + "</div>" +
                 "</a>" +
                 "<div class=\"remove\" onclick=\"removeFavouriteItem(" + index + ")\">X</div>" +
@@ -82,20 +80,15 @@ function displayFavouritesList() {
     $$("#favourite-list").show()
 }
 
-function clicked(id) {
-    console.log("item clicked id:" + id);
-    console.log("item clicked id:" + myList.items[0].title);
-}
 
-function onFavouriteItemClicked(id, stopName, lineNumber) {
-    console.log("item clicked id:" + id);
+function onFavouriteItemClicked(id) {
     if (id !== "-1") {
-        console.log("item clicked id:" + id + "stop: " + stopName);
-        window.sessionStorage.setItem("details-stopName", stopName);
-        window.sessionStorage.setItem("details-lineNumber", lineNumber);
-        // window.open("favourite_details.html");
+        console.log("item clicked id:" + id + "stop: " + myList.items[id].stopId);
+        window.sessionStorage.setItem("details-stopName", myList.items[id].stopId);
+        window.sessionStorage.setItem("details-lineNumber", myList.items[id].lineNumber);
     }
 }
+
 
 function removeFavouriteItem(id) {
     console.log("removing item: " + id);
@@ -114,28 +107,19 @@ function removeFavouriteItem(id) {
         window.localStorage.setItem("key-stops-list", JSON.stringify(stopsList));
         window.localStorage.setItem("key-line-list", JSON.stringify(lineList));
     }
-
-
 }
 
-
-/*function setAddFavouriteButtonListener() {
-    $$("#add-button").on("click", function () {
-        setSaveButtonClickListener();
-        fillSavedData();
-    });
-}*/
 
 function saveFavouriteData(stop, line) {
     var stopsList = JSON.parse(window.localStorage.getItem("key-stops-list"));
     var lineList = JSON.parse(window.localStorage.getItem("key-line-list"));
 
+    console.log("saveFavouriteData setting data:" + stopsList + lineList);
+
     if (stopsList === null && lineList === null) {
         stopsList = [stop];
         lineList = [line];
     } else {
-        stopsList = [];
-        lineList = [];
         stopsList.push(stop);
         lineList.push(line);
     }
@@ -153,11 +137,11 @@ function saveFavouriteData(stop, line) {
 myApp.onPageInit("add-favourite-page", function (page) {
     initFavouriteStopsList();
     initFavouriteLinesList();
-    setAddOnCLickListener();
+    setFavouriteAddOnCLickListener();
 });
 
 
-function setAddOnCLickListener() {
+function setFavouriteAddOnCLickListener() {
     $$("#add_favourite_button").on("click", function () {
         if (validateFavouriteInputs()) {
             console.log("Favorite: Stop: " + $$("#favourite-autocomplete-stops").val() +
@@ -409,11 +393,9 @@ myApp.onPageInit("favourite_details", function (page) {
 
 
 function performFavouriteDetailsRequest() {
-    //var stopName = window.sessionStorage.getItem("details-stopName");
-    var stopName = "Batorego";
+    var stopName = window.sessionStorage.getItem("details-stopName");
 
-    // var lineNr = window.sessionStorage.getItem("details-lineNumber");
-    var lineNr = "4";
+    var lineNr = window.sessionStorage.getItem("details-lineNumber");
 
     console.log("performFavouriteDetailsRequest stopname: " + stopName + ", line number:" + lineNr);
 

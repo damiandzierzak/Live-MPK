@@ -8,21 +8,12 @@
     },
     "installed_plugins": {
         "cordova-plugin-device": {
-            "PACKAGE_NAME": "myfirstapp"
-        },
-        "cordova-plugin-dialogs": {
-            "PACKAGE_NAME": "myfirstapp"
-        },
-        "cordova-plugin-http": {
-            "PACKAGE_NAME": "myfirstapp"
+            "PACKAGE_NAME": "Live-MPK"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-compat": {
-            "PACKAGE_NAME": "myfirstapp"
-        },
-        "cordova-plugin-file": {
-            "PACKAGE_NAME": "myfirstapp"
+            "PACKAGE_NAME": "Live-MPK"
         }
     }
 }
