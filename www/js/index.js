@@ -82,7 +82,7 @@ function displayFavouritesList() {
     $$("#favourite-list").show()
 }
 
-function clicked(id){
+function clicked(id) {
     console.log("item clicked id:" + id);
     console.log("item clicked id:" + myList.items[0].title);
 }
@@ -332,11 +332,11 @@ function parseTime(time) {
 
 myApp.onPageInit("stops-page", function (page) {
     initStopsListForDepartures();
-    setGoOnCLickListener();
+    setStopsPageGoOnCLickListener();
 });
 
 
-function setGoOnCLickListener() {
+function setStopsPageGoOnCLickListener() {
     $$("#stop-name-search-button").on("click", function () {
         console.log("Stop: " + $$("#autocomplete-stop-name").val());
 
@@ -376,7 +376,7 @@ function performStopDeparturesRequest(stopName) {
             for (var i = 0; i < results.actual.length; i++) {
                 items.push({
                     title: "Linia: " + results.actual[i].patternText + " Kierunek: " + results.actual[i].direction + " Odjazd za: " + results.actual[i].mixedTime
-				});
+                });
             }
         } else {
             items.push({
