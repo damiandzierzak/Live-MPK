@@ -317,8 +317,21 @@ function parseTime(time) {
 myApp.onPageInit("stops-page", function (page) {
     initStopsListForDepartures();
     setStopsPageGoOnCLickListener();
+    initPullToRefresh();
 });
 
+
+function initPullToRefresh() {
+    // Pull to refresh content
+    var ptrContent = $$(".pull-to-refresh-content");
+    myApp.initPullToRefresh(ptrContent);
+    ptrContent.on("ptr:refresh", function (e) {
+        console.log("ptr:refresh");
+        setTimeout(function () {
+            performStopDeparturesRequest($$("#autocomplete-stop-name").val());
+        }, 1200);
+    });
+}
 
 function setStopsPageGoOnCLickListener() {
     $$("#stop-name-search-button").on("click", function () {
@@ -355,7 +368,8 @@ function performStopDeparturesRequest(stopName) {
 
     $$.getJSON(queryString, function (results) {
         var items = [];
-
+        myApp.pullToRefreshDone();
+        console.log("pullToRefreshDone");
         if (results.actual.length > 0) {
             for (var i = 0; i < results.actual.length; i++) {
                 items.push({
@@ -403,6 +417,7 @@ function performFavouriteDetailsRequest() {
         "http://www.ttss.krakow.pl/internetservice/services/passageInfo/stopPassages/stop?stop=" + stopsNamesIdsMap[stopName] + "&mode=departure";
 
     $$.getJSON(queryString, function (results) {
+
         var items = [];
 
         if (results.actual.length > 0) {
@@ -430,7 +445,6 @@ function performFavouriteDetailsRequest() {
             }
         });
     });
-
 }
 
 
