@@ -277,14 +277,18 @@ function performLinesAndStopsRequest(stopName, lineNr) {
             for (var i = 0; i < results.actual.length; i++) {
                 if (results.actual[i].patternText === lineNr) {
                     items.push({
-                        title: results.actual[i].patternText + "-" + results.actual[i].direction + ": " + results.actual[i].mixedTime
+						lineNr: results.actual[i].patternText,
+						direction: results.actual[i].direction,
+						departure: results.actual[i].mixedTime
                     });
                 }
             }
         } else {
             items.push({
-                title: "Nie znaleziono odjazdów"
-            });
+                lineNr: "Nie znaleziono odjazdów",
+				direction: "",
+				departure: ""
+			});
         }
         var myList = myApp.virtualList(".list-block.virtual-list.lines-and-stops", {
             // Array with items data
@@ -292,7 +296,8 @@ function performLinesAndStopsRequest(stopName, lineNr) {
             renderItem: function (index, item) {
                 return "<li class=\"item-content\">" +
                     "<div class=\"item-inner\">" +
-                    "<div class=\"item-title\">" + item.title + "</div>" +
+                    "<div class=\"item-title\"><span class=\"badge\">" + item.lineNr + "</span>" + "  " + item.direction + "</div>" +
+                    "<div class=\"item-after\">" + item.departure + "</div>" +
                     "</div>" +
                     "</li>";
             }
@@ -378,13 +383,18 @@ function performStopDeparturesRequest(stopName) {
         if (results.actual.length > 0) {
             for (var i = 0; i < results.actual.length; i++) {
                 items.push({
-                    title: results.actual[i].patternText + "-" + results.actual[i].direction + ": " + results.actual[i].mixedTime
+                //    title: results.actual[i].patternText + "-" + results.actual[i].direction + ": " + results.actual[i].mixedTime
+					lineNr: results.actual[i].patternText,
+					direction: results.actual[i].direction,
+					departure: results.actual[i].mixedTime
                 });
             }
         } else {
             items.push({
-                title: "Nie znaleziono odjazdów"
-            });
+                lineNr: "Nie znaleziono odjazdów",
+				direction: "",
+				departure: ""
+			});
         }
         var myList = myApp.virtualList(".list-block.virtual-list.stops", {
             // Array with items data
@@ -392,7 +402,8 @@ function performStopDeparturesRequest(stopName) {
             renderItem: function (index, item) {
                 return "<li class=\"item-content\">" +
                     "<div class=\"item-inner\">" +
-                    "<div class=\"item-title\">" + item.title + "</div>" +
+                    "<div class=\"item-title\"><span class=\"badge\">" + item.lineNr + "</span>" + "  " + item.direction + "</div>" +
+                    "<div class=\"item-after\">" + item.departure + "</div>" +
                     "</div>" +
                     "</li>";
             }
@@ -441,13 +452,17 @@ function performFavouriteDetailsRequest() {
             for (var i = 0; i < results.actual.length; i++) {
                 if (results.actual[i].patternText === lineNr) {
                     items.push({
-                        title: results.actual[i].patternText + "-" + results.actual[i].direction + ": " + results.actual[i].mixedTime
+						lineNr: results.actual[i].patternText,
+						direction: results.actual[i].direction,
+						departure: results.actual[i].mixedTime
                     });
                 }
             }
         } else {
             items.push({
-                title: "Nie znaleziono odjazdów"
+                lineNr: "",
+				direction: "Nie znaleziono odjazdów	",
+				departure: ""
             });
         }
         var myList = myApp.virtualList("#favourite_details_list", {
@@ -456,7 +471,8 @@ function performFavouriteDetailsRequest() {
             renderItem: function (index, item) {
                 return "<li class=\"item-content\">" +
                     "<div class=\"item-inner\">" +
-                    "<div class=\"item-title\">" + item.title + "</div>" +
+                    "<div class=\"item-title\"><span class=\"badge\">" + item.lineNr + "</span>" + "  " + item.direction + "</div>" +
+                    "<div class=\"item-after\">" + item.departure + "</div>" +
                     "</div>" +
                     "</li>";
             }
