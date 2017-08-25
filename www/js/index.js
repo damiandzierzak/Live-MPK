@@ -101,7 +101,7 @@ function removeFavouriteItem(id) {
 
     if (stopsList.length === 0) {
         window.localStorage.removeItem("key-stops-list");
-        window.localStorage.removeItem("key-line-lis");
+        window.localStorage.removeItem("key-line-list");
         displayNoFavourites();
     } else {
         window.localStorage.setItem("key-stops-list", JSON.stringify(stopsList));
@@ -114,12 +114,17 @@ function saveFavouriteData(stop, line) {
     var stopsList = JSON.parse(window.localStorage.getItem("key-stops-list"));
     var lineList = JSON.parse(window.localStorage.getItem("key-line-list"));
 
-    console.log("saveFavouriteData setting data:" + stopsList + lineList);
+
+
 
     if (stopsList === null && lineList === null) {
+		console.log("saveFavouriteData setting data:" + stop + " " + line);
+		console.log("saveFavouriteData saving to:" + stopsList + " " + lineList);
         stopsList = [stop];
         lineList = [line];
     } else {
+		console.log("saveFavouriteData2 setting data:" + stop + " " + line);
+		console.log("saveFavouriteData2 saving to:" + stopsList + " " + lineList);
         stopsList.push(stop);
         lineList.push(line);
     }
