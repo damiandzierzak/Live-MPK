@@ -317,13 +317,13 @@ function parseTime(time) {
 myApp.onPageInit("stops-page", function (page) {
     initStopsListForDepartures();
     setStopsPageGoOnCLickListener();
-    initPullToRefresh();
+    initStopPullToRefresh();
 });
 
 
-function initPullToRefresh() {
+function initStopPullToRefresh() {
     // Pull to refresh content
-    var ptrContent = $$(".pull-to-refresh-content");
+    var ptrContent = $$("#stop-refresh");
     myApp.initPullToRefresh(ptrContent);
     ptrContent.on("ptr:refresh", function (e) {
         console.log("ptr:refresh");
@@ -403,8 +403,20 @@ myApp.onPageInit("favourite_details", function (page) {
     console.log(page.name + " initialized");
     performFavouriteDetailsRequest();
     //In console we will see 'about page initialized' for About page and 'services page initialized' for Services page
+    initFavouriteDetailsPullToRefresh();
 });
 
+function initFavouriteDetailsPullToRefresh() {
+    // Pull to refresh content
+    var ptrContent = $$("#favourite-details-refresh");
+    myApp.initPullToRefresh(ptrContent);
+    ptrContent.on("ptr:refresh", function (e) {
+        console.log("ptr:refresh");
+        setTimeout(function () {
+            performFavouriteDetailsRequest()
+        }, 1200);
+    });
+}
 
 function performFavouriteDetailsRequest() {
     var stopName = window.sessionStorage.getItem("details-stopName");
@@ -417,7 +429,7 @@ function performFavouriteDetailsRequest() {
         "http://www.ttss.krakow.pl/internetservice/services/passageInfo/stopPassages/stop?stop=" + stopsNamesIdsMap[stopName] + "&mode=departure";
 
     $$.getJSON(queryString, function (results) {
-
+        myApp.pullToRefreshDone();
         var items = [];
 
         if (results.actual.length > 0) {
