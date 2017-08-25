@@ -272,7 +272,7 @@ function performLinesAndStopsRequest(stopName, lineNr) {
             for (var i = 0; i < results.actual.length; i++) {
                 if (results.actual[i].patternText === lineNr) {
                     items.push({
-                        title: "Linia: " + results.actual[i].patternText + " Kierunek: " + results.actual[i].direction + " Odjazd za: " + results.actual[i].mixedTime
+                        title: results.actual[i].patternText + "-" + results.actual[i].direction + ": " + results.actual[i].mixedTime
                     });
                 }
             }
@@ -359,7 +359,7 @@ function performStopDeparturesRequest(stopName) {
         if (results.actual.length > 0) {
             for (var i = 0; i < results.actual.length; i++) {
                 items.push({
-                    title: "Linia: " + results.actual[i].patternText + " Kierunek: " + results.actual[i].direction + " Odjazd za: " + results.actual[i].mixedTime
+                    title: results.actual[i].patternText + "-" + results.actual[i].direction + ": " + results.actual[i].mixedTime
                 });
             }
         } else {
@@ -409,7 +409,7 @@ function performFavouriteDetailsRequest() {
             for (var i = 0; i < results.actual.length; i++) {
                 if (results.actual[i].patternText === lineNr) {
                     items.push({
-                        title: "Linia: " + results.actual[i].patternText + " Kierunek: " + results.actual[i].direction + " Odjazd za: " + results.actual[i].mixedTime
+                        title: results.actual[i].patternText + "-" + results.actual[i].direction + ": " + results.actual[i].mixedTime
                     });
                 }
             }
