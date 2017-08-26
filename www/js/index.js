@@ -1,5 +1,6 @@
 var myApp = new Framework7({
     modalTitle: "Framework7",
+	swipePanel: 'left',
     material: true
 });
 var $$ = Dom7;
