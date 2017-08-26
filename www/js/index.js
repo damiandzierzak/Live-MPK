@@ -29,6 +29,7 @@ function onDeviceReady() {
     console.log("onDeviceReady");
     checkFavourites();
     document.addEventListener("backbutton", onBackKeyDown, false);
+    //document.addEventListener("nav_back_link", checkFavourites, false);
 }
 
 
@@ -42,6 +43,7 @@ function onBackKeyDown() {
 		navigator.app.exitApp();
 	}
 	console.log("onBackKeyDown: back");
+    checkFavourites();
 	mainView.router.back();
 }
 
@@ -132,8 +134,6 @@ function saveFavouriteData(stop, line) {
     var lineList = JSON.parse(window.localStorage.getItem("key-line-list"));
 
 
-
-
     if (stopsList === null && lineList === null) {
 		console.log("saveFavouriteData setting data:" + stop + " " + line);
 		console.log("saveFavouriteData saving to:" + stopsList + " " + lineList);
@@ -147,8 +147,6 @@ function saveFavouriteData(stop, line) {
     }
 
     console.log("setting data" + stopsList.length);
-
-
     window.localStorage.setItem("key-stops-list", JSON.stringify(stopsList));
     window.localStorage.setItem("key-line-list", JSON.stringify(lineList));
 }

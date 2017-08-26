@@ -8,24 +8,24 @@
 </head>
 
 <body>
-<div data-page="favourite_details" class="page">
-    <div class="navbar">
-        <div class="navbar-inner">
-            <div class="left"><a href="index.html" class="back link"><i class="icon icon-back icon-only"></i></a></div>
-            <div class="center sliding">Favourite details</div>
-        </div>
-    </div>
-    <div id="favourite-details-refresh" class="page-content pull-to-refresh-content">
-        <div class="pull-to-refresh-layer">
-            <div class="preloader"></div>
-            <div class="pull-to-refresh-arrow"></div>
-        </div>
-        <!-- Virtual List -->
-        <div id="favourite_details_list" class="list-block virtual-list">
-            <!-- keep it empty -->
-        </div>
-    </div>
-</div>
+	<div data-page="favourite_details" class="page">
+		<div class="navbar">
+			<div class="navbar-inner">
+                <div id="nav_back_link" class="left"><a href="index.html" class="back link" onclick="checkFavourites()"><i class="icon icon-back icon-only"></i></a></div>
+				<div class="center sliding">Favourite details</div>
+			</div>
+		</div>
+		<div id="favourite-details-refresh" class="page-content pull-to-refresh-content">
+			<div class="pull-to-refresh-layer">
+				<div class="preloader"></div>
+				<div class="pull-to-refresh-arrow"></div>
+			</div>
+			<!-- Virtual List -->
+			<div id="favourite_details_list" class="list-block virtual-list">
+				<!-- keep it empty -->
+			</div>
+		</div>
+	</div>
 
 </body>
 
