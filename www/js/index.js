@@ -23,14 +23,30 @@ function init() {
     }
 }
 
+
 function onDeviceReady() {
     console.log("onDeviceReady");
     checkFavourites();
+    document.addEventListener("backbutton", onBackKeyDown, false);
+}
+
+
+// Handle the back button
+//
+function onBackKeyDown() {
+	    console.log("onBackKeyDown: " + mainView.activePage.name);
+
+	if (mainView.activePage.name === "index") {
+		console.log("onBackKeyDown: exit");
+		navigator.app.exitApp();
+	}
+	console.log("onBackKeyDown: back");
+	mainView.router.back();
 }
 
 
 function checkFavourites() {
-    console.log("key-stop:" + (window.localStorage.getItem("key-stop") === undefined));
+    console.log("key-stop:" + (window.localStorage.getItem("key-stops-list") === undefined));
     var stopsList = JSON.parse(window.localStorage.getItem("key-stops-list"));
 
     if (stopsList === null || stopsList === undefined || stopsList.length === 0) {
