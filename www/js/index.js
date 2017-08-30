@@ -176,7 +176,7 @@ function setFavouriteAddOnCLickListener() {
 
 function validateFavouriteInputs() {
     if (!$$("#favourite-autocomplete-stops").val() || !$$("#favourite-autocomplete-lines").val()) {
-        myApp.alert(" Wypelnij wszystkie pola! ");
+        myApp.alert(" Please fill-in all the fields! ", "Live-MPK");
         return false;
     }
     return true;
@@ -234,13 +234,26 @@ myApp.onPageInit("lines-and-stops-page", function (page) {
 
 function setGoOnCLickListener() {
     $$("#lines-and-stops-search-button").on("click", function () {
-        console.log("Stop: " + $$("#lines-and-stops-autocomplete-stops").val() +
-            " Line: " + $$("#lines-and-stops-autocomplete-lines").val());
+        if (validateStopsAndLinesInputs()) {
 
-        performLinesAndStopsRequest($$("#lines-and-stops-autocomplete-stops").val(), $$("#lines-and-stops-autocomplete-lines").val());
+			console.log("Stop: " + $$("#lines-and-stops-autocomplete-stops").val() +
+				" Line: " + $$("#lines-and-stops-autocomplete-lines").val());
+
+			performLinesAndStopsRequest($$("#lines-and-stops-autocomplete-stops").val(), $$("#lines-and-stops-autocomplete-lines").val());
+		}
     });
 
 }
+
+
+function validateStopsAndLinesInputs() {
+    if (!$$("#lines-and-stops-autocomplete-stops").val() || !$$("#lines-and-stops-autocomplete-lines").val()) {
+        myApp.alert(" Please fill-in all the fields! ", "Live-MPK");
+        return false;
+    }
+    return true;
+}
+
 
 function initStopsList() {
     var autocompleteStops = myApp.autocomplete({
@@ -353,14 +366,27 @@ function initStopPullToRefresh() {
     });
 }
 
+
 function setStopsPageGoOnCLickListener() {
     $$("#stop-name-search-button").on("click", function () {
-        console.log("Stop: " + $$("#autocomplete-stop-name").val());
+		if (validateStopInput()) {
+			console.log("Stop: " + $$("#autocomplete-stop-name").val());
 
-        performStopDeparturesRequest($$("#autocomplete-stop-name").val());
+			performStopDeparturesRequest($$("#autocomplete-stop-name").val());
+		}
     });
 
 }
+
+
+function validateStopInput() {
+    if (!$$("#autocomplete-stop-name").val()) {
+        myApp.alert(" Please fill-in the field! ", "Live-MPK");
+        return false;
+    }
+    return true;
+}
+
 
 function initStopsListForDepartures() {
     var autocompleteStops = myApp.autocomplete({
