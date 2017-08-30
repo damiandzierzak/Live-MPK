@@ -40,10 +40,8 @@ var stopsNamesArray = [
     "Dworcowa",
     "Dworzec Główny",
     "Dworzec Główny Tunel",
-    "Dworzec Główny Tunel",
     "Dworzec Główny Zachód",
     "Dworzec Płaszów Estakada",
-    "Dworzec Towarowy",
     "Dworzec Towarowy",
     "Dąbie",
     "Elektromontaż",
@@ -53,9 +51,7 @@ var stopsNamesArray = [
     "Francesco Nullo",
     "Gromadzka",
     "Grota Roweckiego",
-    "Grota-Roweckiego",
     "Głowackiego",
-    "Hala Targowa",
     "Hala Targowa",
     "Jarzębiny",
     "Jeżynowa",
@@ -77,10 +73,8 @@ var stopsNamesArray = [
     "Kraków Arena Al. Pokoju",
     "Kraków Plaza",
     "Krowodrza Górka",
-    "Krowodrza Górka",
     "Kuklińskiego",
     "Kurdwanów",
-    "Kurdwanów pętla",
     "Lema",
     "Limanowskiego",
     "Lipińskiego",
@@ -90,13 +84,13 @@ var stopsNamesArray = [
     "Mały Płaszów",
     "Meksyk",
     "Miodowa",
-    "Miodowa",
     "Mistrzejowice",
     "Miśnieńska",
     "Most Grunwaldzki",
     "Mrozowa",
     "Muzeum Inżynierii Miejskiej",
     "Muzeum Lotnictwa",
+	"Muzeum Narodowe",
     "Norymberska",
     "Nowohucka",
     "Nowosądecka",
@@ -117,8 +111,6 @@ var stopsNamesArray = [
     "Piaski Nowe",
     "Piasta Kołodzieja",
     "Plac Bohaterów Getta",
-    "Plac Bohaterów Getta",
-    "Plac Centralny",
     "Plac Centralny im. R.Reagana",
     "Plac Inwalidów",
     "Plac Wolnica",
@@ -127,12 +119,9 @@ var stopsNamesArray = [
     "Pleszów",
     "Poczta Główna",
     "Politechnika",
-    "Politechnika",
     "Powstańców Wielkopolskich",
     "Prokocim",
-    "Prokocim",
     "Prokocim Szpital",
-    "Prądnicka",
     "Prądnicka",
     "Pędzichów",
     "Rakowicka",
@@ -140,24 +129,19 @@ var stopsNamesArray = [
     "Rondo 308. Dywizjonu",
     "Rondo Czyżyńskie",
     "Rondo Grzegórzeckie",
-    "Rondo Grzegórzeckie",
     "Rondo Hipokratesa",
-    "Rondo Kocmyrzowskie",
     "Rondo Kocmyrzowskie im. Ks. Gorzelanego",
     "Rondo Matecznego",
-    "Rondo Mogilskie",
     "Rondo Mogilskie",
     "Rondo Piastowskie",
     "Rostworowskiego",
     "Ruczaj",
-    "Ruczaj I",
     "Rzebika",
     "Rzemieślnicza",
     "Salwator",
     "Sanktuarium Bożego Miłosierdzia",
     "Smolki",
     "Solvay",
-    "Starowiślna",
     "Starowiślna",
     "Stary Kleparz",
     "Stella-Sawickiego",
@@ -182,7 +166,7 @@ var stopsNamesArray = [
     "Wańkowicza",
     "Wesele",
     "Wiadukty",
-    "TAURON Arena Kraków Wieczysta",
+	"Wieczysta",
     "Witosa",
     "Wlotowa",
     "Wzgórza Krzesławickie",
@@ -190,11 +174,7 @@ var stopsNamesArray = [
     "Zajezdnia Nowa Huta",
     "Ćwiklińskiej",
     "Łagiewniki",
-    "Łagiewniki",
     "Łagiewniki ZUS",
-    "Św. Gertrudy",
-    "Św. Wawrzyńca",
-    "Św. Wawrzyńca",
     "Św.Gertrudy",
     "Św.Wawrzyńca"
 ];
@@ -231,6 +211,7 @@ stopsNamesIdsMap['Bieńczycka'] = '867'
 stopsNamesIdsMap['Bieżanowska'] = '630'
 stopsNamesIdsMap['Biprostal'] = '84'
 stopsNamesIdsMap['Blokowa'] = '461'
+stopsNamesIdsMap['Boisko Kabel'] = '2798'
 stopsNamesIdsMap['Borek Fałęcki'] = '747'
 stopsNamesIdsMap['Borek Fałęcki I'] = '824'
 stopsNamesIdsMap['Borsucza'] = '612'
@@ -246,6 +227,7 @@ stopsNamesIdsMap['Centrum Kongresowe ICE'] = '3039'
 stopsNamesIdsMap['Chmieleniec'] = '2691'
 stopsNamesIdsMap['Cichy Kącik'] = '87'
 stopsNamesIdsMap['Cienista'] = '3037'
+stopsNamesIdsMap['Cmentarz Grębałów Zachód'] = '2549'
 stopsNamesIdsMap['Cmentarz Podgórski'] = '621'
 stopsNamesIdsMap['Cmentarz Rakowicki'] = '124'
 stopsNamesIdsMap['Cracovia'] = '318'
@@ -267,6 +249,7 @@ stopsNamesIdsMap['Dąbie'] = '370'
 stopsNamesIdsMap['Elektromontaż'] = '464'
 stopsNamesIdsMap['Fabryczna'] = '368'
 stopsNamesIdsMap['Filharmonia'] = '322'
+stopsNamesIdsMap['Fort Mogiła'] = '1051'
 stopsNamesIdsMap['Francesco Nullo'] = '367'
 stopsNamesIdsMap['Gromadzka'] = '560'
 stopsNamesIdsMap['Grota-Roweckiego'] = '2687'
@@ -282,14 +265,19 @@ stopsNamesIdsMap['Klasztorna'] = '429'
 stopsNamesIdsMap['Kleeberga'] = '382'
 stopsNamesIdsMap['Klimeckiego'] = '946'
 stopsNamesIdsMap['Kobierzyńska'] = '584'
+stopsNamesIdsMap['Kocmyrzowska'] = '401'
 stopsNamesIdsMap['Koksochemia'] = '457'
 stopsNamesIdsMap['Kombinat'] = '459'
 stopsNamesIdsMap['Komorowskiego'] = '313'
 stopsNamesIdsMap['Kopiec Wandy'] = '450'
+stopsNamesIdsMap['Kordylewskiego'] = '2535'
 stopsNamesIdsMap['Korona'] = '571'
+stopsNamesIdsMap['Kraków Arena Al. Pokoju'] = '2803'
+stopsNamesIdsMap['Kraków Plaza'] = '959'
 stopsNamesIdsMap['Krowodrza Górka'] = '63'
 stopsNamesIdsMap['Kuklińskiego'] = '567'
 stopsNamesIdsMap['Kurdwanów'] = '744'
+stopsNamesIdsMap['Lema'] = '2537'
 stopsNamesIdsMap['Limanowskiego'] = '569'
 stopsNamesIdsMap['Lipińskiego'] = '2686'
 stopsNamesIdsMap['Lipska'] = '561'
@@ -300,10 +288,13 @@ stopsNamesIdsMap['Meksyk'] = '454'
 stopsNamesIdsMap['Miodowa'] = '362'
 stopsNamesIdsMap['Mistrzejowice'] = '375'
 stopsNamesIdsMap['Miśnieńska'] = '2538'
+stopsNamesIdsMap['Most Grunwaldzki'] = '574'
 stopsNamesIdsMap['Mrozowa'] = '460'
 stopsNamesIdsMap['Muzeum Inżynierii Miejskiej'] = '2726'
 stopsNamesIdsMap['Muzeum Lotnictwa'] = '2811'
+stopsNamesIdsMap['Muzeum Narodowe'] = '3141'
 stopsNamesIdsMap['Norymberska'] = '2688'
+stopsNamesIdsMap['Nowohucka'] = '372'
 stopsNamesIdsMap['Nowosądecka'] = '715'
 stopsNamesIdsMap['Nowy Bieżanów'] = '2580'
 stopsNamesIdsMap['Nowy Kleparz'] = '71'
@@ -322,6 +313,7 @@ stopsNamesIdsMap['Park Jordana'] = '960'
 stopsNamesIdsMap['Piaski Nowe'] = '716'
 stopsNamesIdsMap['Piasta Kołodzieja'] = '379'
 stopsNamesIdsMap['Plac Bohaterów Getta'] = '570'
+stopsNamesIdsMap['Plac Centralny im. R.Reagana'] = '2744'
 stopsNamesIdsMap['Plac Inwalidów'] = '79'
 stopsNamesIdsMap['Plac Wolnica'] = '360'
 stopsNamesIdsMap['Plac Wszystkich Świętych'] = '1360'
@@ -332,6 +324,7 @@ stopsNamesIdsMap['Politechnika'] = '73'
 stopsNamesIdsMap['Powstańców Wielkopolskich'] = '568'
 stopsNamesIdsMap['Prokocim'] = '637'
 stopsNamesIdsMap['Prokocim Szpital'] = '682'
+stopsNamesIdsMap['Prądnicka'] = '69'
 stopsNamesIdsMap['Pędzichów'] = '72'
 stopsNamesIdsMap['Rakowicka'] = '128'
 stopsNamesIdsMap['Reymana'] = '320'
@@ -343,6 +336,7 @@ stopsNamesIdsMap['Rondo Kocmyrzowskie im. Ks. Gorzelanego'] = '2745'
 stopsNamesIdsMap['Rondo Matecznego'] = '610'
 stopsNamesIdsMap['Rondo Mogilskie'] = '125'
 stopsNamesIdsMap['Rondo Piastowskie'] = '383'
+stopsNamesIdsMap['Rostworowskiego'] = '587'
 stopsNamesIdsMap['Ruczaj'] = '589'
 stopsNamesIdsMap['Rzebika'] = '1262'
 stopsNamesIdsMap['Rzemieślnicza'] = '611'
@@ -374,6 +368,7 @@ stopsNamesIdsMap['Wawel'] = '325'
 stopsNamesIdsMap['Wańkowicza'] = '2543'
 stopsNamesIdsMap['Wesele'] = '133'
 stopsNamesIdsMap['Wiadukty'] = '434'
+stopsNamesIdsMap['Wieczysta'] = '114'
 stopsNamesIdsMap['Witosa'] = '718'
 stopsNamesIdsMap['Wlotowa'] = '634'
 stopsNamesIdsMap['Wzgórza Krzesławickie'] = '442'
