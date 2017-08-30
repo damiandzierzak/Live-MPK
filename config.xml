@@ -11,5 +11,17 @@
     <plugin name="cordova-plugin-dialogs" spec="~1.3.1" />
     <plugin name="cordova-plugin-http" spec="~1.2.0" />
     <plugin name="cordova-plugin-whitelist" spec="~1.3.2" />
+    <icon src="res/icon/android/ic_launcher_hdpi.png" platform="android" qualifier="hdpi" />
+    <icon src="res/icon/android/ic_launcher_mdpi.png" platform="android" qualifier="mdpi" />
+    <icon src="res/icon/android/ic_launcher_xdpi.png" platform="android" qualifier="xhdpi" />
+    <icon src="res/icon/android/ic_launcher_xxdpi.png" platform="android" qualifier="xxhdpi" />
+    <icon src="res/icon/android/ic_launcher_xxxdpi.png" platform="android" qualifier="xxxhdpi" />
+    <splash density="ldpi" src="res/screens/android/screen-ldpi-portrait.png"/>
+    <splash density="mdpi" src="res/screens/android/screen-mdpi-portrait.png"/>
+    <splash density="hdpi" src="res/screens/android/screen-hdpi-portrait.png"/>
+    <splash density="xhdpi" src="res/screens/android/screen-xhdpi-portrait.png"/>
+    <splash density="xxhdpi" src="res/screens/android/screen-xxhdpi-portrait.png"/>
+    <splash density="xxxhdpi" src="res/screens/android/screen-xxxhdpi-portrait.png"/>
+
     <allow-navigation href="*" />
 </widget>
