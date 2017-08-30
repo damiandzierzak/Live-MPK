@@ -29,7 +29,6 @@ function onDeviceReady() {
     console.log("onDeviceReady");
     checkFavourites();
     document.addEventListener("backbutton", onBackKeyDown, false);
-    //document.addEventListener("nav_back_link", checkFavourites, false);
 }
 
 
@@ -74,7 +73,7 @@ function displayFavouritesList() {
 
     for (var i = 0; i < stopsList.length; i++) {
         items.push({
-            title: "Linia: " + lineList[i] + " Przystanek: " + stopsList[i],
+            title: "Line: " + lineList[i] + " Stop: " + stopsList[i],
             stopId: stopsList[i],
             lineNumber: lineList[i]
         });
@@ -287,7 +286,8 @@ function performLinesAndStopsRequest(stopName, lineNr) {
 
     $$.getJSON(queryString, function (results) {
         var items = [];
-
+		
+		console.log("results len: " + results.actual.length);
         if (results.actual.length > 0) {
             for (var i = 0; i < results.actual.length; i++) {
                 if (results.actual[i].patternText === lineNr) {
@@ -298,11 +298,14 @@ function performLinesAndStopsRequest(stopName, lineNr) {
                     });
                 }
             }
-        } else {
+        }
+		
+		console.log("items len: " + items.length);
+		if (items.length === 0) {
             items.push({
-                lineNr: "Nie znaleziono odjazdów",
-				direction: "",
-				departure: ""
+                lineNr: lineNr,
+				direction: "Not found departures",
+				departure: "N/A"
 			});
         }
         var myList = myApp.virtualList(".list-block.virtual-list.lines-and-stops", {
@@ -326,14 +329,6 @@ function getRoatsList(lineNr) {
     var queryString =
         'http://www.ttss.krakow.pl/internetservice/services/routeInfo/routeStops?routeId=' + lineNr;
 
-}
-
-
-function parseTime(time) {
-    if (time === "0 Min") {
-        return "Mniej niż minuta";
-    }
-    return time;
 }
 
 
@@ -398,16 +393,18 @@ function performStopDeparturesRequest(stopName) {
         if (results.actual.length > 0) {
             for (var i = 0; i < results.actual.length; i++) {
                 items.push({
-                //    title: results.actual[i].patternText + "-" + results.actual[i].direction + ": " + results.actual[i].mixedTime
 					lineNr: results.actual[i].patternText,
 					direction: results.actual[i].direction,
 					departure: results.actual[i].mixedTime
                 });
             }
-        } else {
+        } 		
+		
+		console.log("items len: " + items.length);
+		if (items.length === 0) {
             items.push({
-                lineNr: "Nie znaleziono odjazdów",
-				direction: "",
+                lineNr: "",
+				direction: "Not found departures",
 				departure: ""
 			});
         }
@@ -473,11 +470,14 @@ function performFavouriteDetailsRequest() {
                     });
                 }
             }
-        } else {
+        }
+		
+		console.log("items len: " + items.length);
+		if (items.length === 0) {
             items.push({
-                lineNr: "",
-				direction: "Nie znaleziono odjazdów	",
-				departure: ""
+                lineNr: lineNr,
+				direction: "Not found departures",
+				departure: "N/A"
             });
         }
         var myList = myApp.virtualList("#favourite_details_list", {
@@ -503,7 +503,6 @@ var stopsNamesArray = [
     "Agencja Kraków Wschód",
     "Balicka Wiadukt",
     "Bardosa",
-    "Basztowa LOT",
     "Batorego",
     "Białucha",
     "Bieńczycka",
